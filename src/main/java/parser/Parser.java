@@ -16,7 +16,7 @@ public class Parser {
     final static Logger logger = Logger.getLogger(Parser.class);
 
     private static final String REST_ENDPOINT = "http://lindat.mff.cuni.cz/services/udpipe/api/process";
-    private static final String MODEL_EN = "english-ud-1.2-160523";
+    private static final String MODEL_EN = "english-ewt-ud-2.4-190531";
 
     public Parser() {
 
@@ -27,6 +27,8 @@ public class Parser {
         builder.append("tokenizer");
         builder.append("&");
         builder.append("parser");
+        builder.append("&");
+        builder.append("tagger");
         builder.append("&");
         builder.append("model=");
         builder.append(MODEL_EN);
@@ -53,7 +55,7 @@ public class Parser {
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 String result = EntityUtils.toString(entity);
-                responseModel.setBody(new JSONObject(result));
+                responseModel.setBody(result);
             }
 
         }
