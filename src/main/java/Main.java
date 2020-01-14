@@ -1,3 +1,4 @@
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import parser.Parser;
 import reader.FileReader;
@@ -12,6 +13,7 @@ public class Main {
     final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
+        BasicConfigurator.configure();
         try {
             String filename = "ame06_a01.txt";
             Reader reader = new FileReader(new File(filename));
