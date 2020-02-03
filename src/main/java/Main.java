@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Main {
 
-    final static Logger logger = Logger.getLogger(Main.class);
+//    final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         try {
@@ -25,9 +25,9 @@ public class Main {
 
 
         } catch (FileNotFoundException e) {
-            logger.error("File not found " + e);
+//            logger.error("File not found " + e);
         } catch (IOException e) {
-            logger.error(e);
+//            logger.error(e);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

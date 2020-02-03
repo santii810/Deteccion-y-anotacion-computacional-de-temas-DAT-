@@ -16,28 +16,19 @@ public class Parser {
     final static Logger logger = Logger.getLogger(Parser.class);
 
     private static final String REST_ENDPOINT = "http://lindat.mff.cuni.cz/services/udpipe/api/process";
-    private static final String MODEL_EN = "english-ewt-ud-2.4-190531";
+    private static final String MODEL_EN = "english-partut-ud-2.4-190531";
 
     public Parser() {
 
     }
 
     private String getQueryParams() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("tokenizer");
-        builder.append("&");
-        builder.append("parser");
-        builder.append("&");
-        builder.append("tagger");
-        builder.append("&");
-        builder.append("model=");
-        builder.append(MODEL_EN);
-        return builder.toString();
+        return "tokenizer&parser&tagger&model=" + MODEL_EN;
     }
 
 
     public ParserResponse send(String text) throws IOException {
-        String completeEndpoint = REST_ENDPOINT + "?" + getQueryParams() + "&data=" +  URLEncoder.encode(text, "UTF-8");;
+        String completeEndpoint = REST_ENDPOINT + "?" + getQueryParams() + "&data=" + URLEncoder.encode(text, "UTF-8");
         logger.info("Sending request to UDPipe");
         logger.debug("Complete endpoint: " + completeEndpoint);
 
