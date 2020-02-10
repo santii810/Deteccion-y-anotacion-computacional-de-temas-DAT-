@@ -1,5 +1,5 @@
 import parser.Parser
-import processor.NoProcessor
+
 import processor.Processor
 import processor.SimpleProcessor
 import reader.FileReader
@@ -14,7 +14,6 @@ class ProcessorTest extends Specification {
         when:
         Reader reader = new FileReader(new File(RESOURCES_URL + filename));
         Parser parser = new Parser();
-//        Processor processor = new NoProcessor();
         Processor processor = new SimpleProcessor();
         ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
         readAndParseManager.process();
@@ -23,6 +22,6 @@ class ProcessorTest extends Specification {
         then:
         files.contains(filename.replace(".txt", ".xml"));
         where:
-        filename << ["Text2.txt"]
+        filename << ["Text3.txt"]
     }
 }

@@ -1,7 +1,6 @@
-import org.apache.log4j.Logger;
 import parser.Parser;
-import processor.NoProcessor;
 import processor.Processor;
+import processor.SimpleProcessor;
 import reader.FileReader;
 import reader.Reader;
 
@@ -19,7 +18,7 @@ public class Main {
             String filename = "ame06_a01.txt";
             Reader reader = new FileReader(new File(filename));
             Parser parser = new Parser();
-            Processor processor = new NoProcessor();
+            Processor processor = new SimpleProcessor();
             ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
             readAndParseManager.process();
 

@@ -6,6 +6,7 @@ import reader.FolderReader
 import reader.Reader
 import spock.lang.Specification
 import utils.TestConstraints
+import utils.TestUtils
 
 class ReaderTest extends Specification {
 

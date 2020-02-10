@@ -1,4 +1,4 @@
-import model.ProcesedOutput;
+import model.xml.ProcesedOutput;
 import parser.Parser;
 import parser.ParserResponse;
 import processor.Processor;

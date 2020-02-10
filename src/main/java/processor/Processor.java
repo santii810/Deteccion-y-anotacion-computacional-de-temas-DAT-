@@ -1,6 +1,6 @@
 package processor;
 
-import model.ProcesedOutput;
+import model.xml.ProcesedOutput;
 import parser.ParserResponse;
 
 import java.util.List;

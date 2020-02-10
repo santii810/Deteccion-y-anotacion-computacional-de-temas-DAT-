@@ -1,20 +1,17 @@
-package model;
+package model.xml;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.xml.bind.annotation.*;
-import java.util.List;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "clause")
-public class Clause {
+@XmlRootElement(name = "word")
+public class Word {
     @XmlAttribute
     private String text;
-    @XmlElement
-    private List<Word> words;
 }
