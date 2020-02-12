@@ -18,6 +18,6 @@ import java.util.List;
 public class ProcesedOutput {
 
     @XmlElement(name = "sentences")
-    private List<Sentence> sentences;
+    private List<SentenceXml> sentenceXmls;
 
 }

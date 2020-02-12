@@ -22,7 +22,7 @@ The latest example of a lack of grace in Washington is the exchange between Jim 
 
 For this Mr. Webb has been roundly criticized. And on reading the exchange I thought it had the sound of the rattling little aggressions of our day, but not on Mr. Webb's side. Imagine Lincoln saying, in such circumstances, "That's not what I asked you." Or JFK. Or Gerald Ford!
 
-"That's not what I asked you" is a sentence straight from cable TV, from which many Americans are acquiring an attitude toward public and even private presentation.
+"That's not what I asked you" is a sentenceXml straight from cable TV, from which many Americans are acquiring an attitude toward public and even private presentation.
 
 Our interviewers and anchors have been taught, or learned, that they must show who's in charge, who's demanding answers, who's uncompromising in his search for truth. But of course they're not in search of truth; they're on a search for dominance.
 
@@ -42,7 +42,7 @@ The Dominance of the Face leads to the inevitability of the interruption:
 
 "That's not what I asked you!"
 
-Because of this style, no one in America has been allowed to finish a sentence in the past 10 years. And it is not confined to cable but has spread to the networks, to government, and is starting to affect regular people, encouraging in them a conversational style that is not friendly or graceful, but depositional.
+Because of this style, no one in America has been allowed to finish a sentenceXml in the past 10 years. And it is not confined to cable but has spread to the networks, to government, and is starting to affect regular people, encouraging in them a conversational style that is not friendly or graceful, but depositional.
 
 This has not contributed to the presence of grace in our public life. And too bad, because right now and for the next few months we'll need grace more than ever.;
 

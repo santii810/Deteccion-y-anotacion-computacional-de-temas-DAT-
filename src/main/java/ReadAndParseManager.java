@@ -25,7 +25,7 @@ public class ReadAndParseManager {
         this.processor = processor;
     }
 
-    public void process() throws IOException, JAXBException {
+    public ProcesedOutput process() throws IOException, JAXBException {
         List<ParserResponse> responseList = new ArrayList<>();
         String lastFilename = null;
         while (reader.hasMoreContent()) {
@@ -38,12 +38,13 @@ public class ReadAndParseManager {
             lastFilename = fileFragment.getFilename();
             responseList.add(parser.send(fileFragment.getText()));
         }
-        processAndSave(responseList, lastFilename);
+        return processAndSave(responseList, lastFilename);
     }
 
-    private void processAndSave(List<ParserResponse> responseList, String lastFilename) throws JAXBException {
+    private ProcesedOutput processAndSave(List<ParserResponse> responseList, String lastFilename) throws JAXBException {
         ProcesedOutput processedOutput = processor.process(responseList);
         Marshaller.marshall(processedOutput, createOutputFilename(lastFilename));
+        return processedOutput;
     }
 
 
