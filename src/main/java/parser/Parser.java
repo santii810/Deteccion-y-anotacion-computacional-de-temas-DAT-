@@ -16,7 +16,7 @@ public class Parser {
     final static Logger logger = Logger.getLogger(Parser.class);
 
     private static final String REST_ENDPOINT = "http://lindat.mff.cuni.cz/services/udpipe/api/process";
-    private static final String MODEL_EN = "english-partut-ud-2.4-190531";
+    private static final String MODEL_EN = "english-ewt-ud-2.4-190531";
 
     public Parser() {
 

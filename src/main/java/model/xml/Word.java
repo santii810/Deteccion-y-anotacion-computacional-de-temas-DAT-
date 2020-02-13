@@ -1,8 +1,6 @@
 package model.xml;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -11,7 +9,22 @@ import javax.xml.bind.annotation.*;
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "word")
+@ToString
 public class Word {
     @XmlAttribute
-    private String text;
+    private int id;
+    @XmlAttribute
+    private String form;
+    @XmlAttribute
+    private String lemma;
+    @XmlAttribute
+    private String xPosTag;
+    @XmlAttribute
+    private int head;
+    @XmlAttribute
+    private String depRel;
+    @XmlAttribute
+    private String deps;
+    @XmlAttribute
+    private String misc;
 }

@@ -1,9 +1,9 @@
 package model.xml;
 
 import lombok.*;
-import model.Sentence;
 
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -11,19 +11,14 @@ import java.util.List;
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "sentence")
-public class SentenceXml {
+public class Sentence {
     @XmlAttribute(name = "text")
     private String text;
     @XmlElement
     private String pivot;
     @XmlElement
     private String theme;
-    //TODO eliminar elemento para que no se imprima
     @XmlElement
-    private List<String> words;
+    private List<Word> words = new ArrayList<>();
 
-    public SentenceXml(Sentence sentence) {
-        this.text = sentence.getText();
-        this.words = sentence.getWords();
-    }
 }
