@@ -13,7 +13,7 @@ class ProcessorTest extends Specification {
     @Shared
     def solutions = [:]
 
-    def setup() {
+    def setupSpec() {
         def jsonSlurper = new JsonSlurper()
         File fl = new File("src/test/resources/TextosAnalizados/Solutions.json")
         HashMap obj = jsonSlurper.parse(fl)
@@ -22,51 +22,47 @@ class ProcessorTest extends Specification {
 
     def "Text extracted is ok"() {
         when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + examples));
+        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
         Processor processor = new SimpleProcessor();
         ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
         ProcesedOutput po = readAndParseManager.process();
 
         then:
-        po.getSentenceXmls().get(0).getText() == examples.text
+        po.getSentences().get(0).getText() == solutions.get(sol).text[0]
 
         where:
-        examples << [solutions.get("example31")]
+        sol << ["example31", "example1"]
     }
 
     def "Pivot is correctly identified"() {
         when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + file));
+        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
         Processor processor = new SimpleProcessor();
         ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
         ProcesedOutput po = readAndParseManager.process();
 
         then:
-        po.getSentenceXmls().get(0).getPivot() == pivot
+        po.getSentences().get(0).getPivot() == solutions.get(sol).pivot[0]
 
         where:
-        file      | pivot
-        "Ej1.txt" | "scored"
-        "Ej2.txt" | "is"
+        sol << ["example31", "example1"]
     }
 
     def "Theme is correctly extracted"() {
         when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + file));
+        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
         Processor processor = new SimpleProcessor();
         ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
         ProcesedOutput po = readAndParseManager.process();
 
         then:
-        po.getSentenceXmls().get(0).getTheme() == theme
+        po.getSentences().get(0).getTheme() == solutions.get(sol).theme[0]
 
         where:
-        file      | theme
-        "Ej1.txt" | "City counciliors"
-        "Ej2.txt" | "It"
+        sol << ["example31", "example1"]
     }
 
 }
