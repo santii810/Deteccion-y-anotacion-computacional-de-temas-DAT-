@@ -1,14 +1,14 @@
 import groovy.json.JsonSlurper
 import model.xml.ProcesedOutput
 import parser.Parser
-import processor.Processor
-import processor.SimpleProcessor
+
+import processor.ObjectMapper
 import reader.FileReader
 import reader.Reader
 import spock.lang.Shared
 import spock.lang.Specification
 
-class ProcessorTest extends Specification {
+class MapperTest extends Specification {
     String RESOURCES_URL = "src/test/resources/TextosAnalizados/"
     @Shared
     def solutions = [:]
@@ -24,8 +24,8 @@ class ProcessorTest extends Specification {
         when:
         Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
-        Processor processor = new SimpleProcessor();
-        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
+        ObjectMapper mapper = new ObjectMapper();
+        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, mapper);
         ProcesedOutput po = readAndParseManager.process();
 
         then:
@@ -39,8 +39,8 @@ class ProcessorTest extends Specification {
         when:
         Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
-        Processor processor = new SimpleProcessor();
-        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
+        ObjectMapper mapper = new ObjectMapper();
+        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, mapper);
         ProcesedOutput po = readAndParseManager.process();
 
         then:
@@ -54,8 +54,8 @@ class ProcessorTest extends Specification {
         when:
         Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]));
         Parser parser = new Parser();
-        Processor processor = new SimpleProcessor();
-        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, processor);
+        ObjectMapper mapper = new ObjectMapper();
+        ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, mapper);
         ProcesedOutput po = readAndParseManager.process();
 
         then:

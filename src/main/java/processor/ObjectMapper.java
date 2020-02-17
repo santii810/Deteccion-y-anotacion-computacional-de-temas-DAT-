@@ -7,15 +7,10 @@ import parser.ParserResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleProcessor implements Processor {
-    @Override
-    public ProcesedOutput process(List<ParserResponse> parserResponses) {
-        List<Sentence> sentences = processToObjects(parserResponses);
+public class ObjectMapper {
 
-
-        ProcesedOutput po = new ProcesedOutput();
-        po.setSentences(sentences);
-        return po;
+    public void process(List<ParserResponse> parserResponses, ProcesedOutput out) {
+        out.getSentences().addAll(processToObjects(parserResponses));
     }
 
 
@@ -39,7 +34,6 @@ public class SimpleProcessor implements Processor {
                 processToWords(sentence.getWords(), line);
             }
         }
-
     }
 
     private void processToWords(List<Word> words, String line) {
