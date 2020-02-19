@@ -1,13 +1,13 @@
 package writer;
 
-import model.xml.ProcesedOutput;
+import processor.ProcessedOutput;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 
 public class Marshaller {
-    public static final String DEFAULT_OUTPUT_FOLDER = "./out/parsedFiles/";
+    private static final String DEFAULT_OUTPUT_FOLDER = "./out/parsedFiles/";
 
     private static void createStructure(String filename) {
         File file = new File(DEFAULT_OUTPUT_FOLDER);
@@ -18,12 +18,12 @@ public class Marshaller {
         if (!directory.exists()) directory.mkdirs();
     }
 
-    public static void marshall(ProcesedOutput procesedOutput, String filename) throws JAXBException {
+    public static void marshall(ProcessedOutput processedOutput, String filename) throws JAXBException {
         createStructure(filename);
 
-        JAXBContext context = JAXBContext.newInstance(procesedOutput.getClass());
+        JAXBContext context = JAXBContext.newInstance(processedOutput.getClass());
         javax.xml.bind.Marshaller mar = context.createMarshaller();
         mar.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        mar.marshal(procesedOutput, new File(DEFAULT_OUTPUT_FOLDER + filename));
+        mar.marshal(processedOutput, new File(DEFAULT_OUTPUT_FOLDER + filename));
     }
 }

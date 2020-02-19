@@ -1,5 +1,5 @@
 import parser.Parser;
-import processor.ObjectMapper;
+import mapper.ObjectMapper;
 import reader.FileReader;
 import reader.Reader;
 
@@ -18,7 +18,7 @@ public class Main {
             Reader reader = new FileReader(new File(filename));
             Parser parser = new Parser();
             ObjectMapper mapper = new ObjectMapper();
-            ReadAndParseManager readAndParseManager = new ReadAndParseManager(reader, parser, mapper);
+            MainHelper readAndParseManager = new MainHelper(reader, parser, mapper);
             readAndParseManager.process();
 
 

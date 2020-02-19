@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences text="It is a false belief.">
+        <words>1	It	it	PRON	PE	Number=Sing|Person=3|PronType=Prs	5	nsubj	_	_</words>
+        <words>2	is	be	AUX	V	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	_</words>
+        <words>3	a	a	DET	RI	Definite=Ind|Number=Sing|PronType=Art	5	det	_	_</words>
+        <words>4	false	false	ADJ	A	Degree=Pos	5	amod	_	_</words>
+        <words>5	belief	belief	NOUN	S	Number=Sing	0	root	_	SpaceAfter=No</words>
+        <words>6	.	.	PUNCT	FS	_	5	punct	_	SpaceAfter=No</words>
+    </sentences>
+</output>

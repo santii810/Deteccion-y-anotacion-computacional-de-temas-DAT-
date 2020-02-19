@@ -49,5 +49,4 @@ class ParserTest extends Specification {
         then:
         responseModel.getHttpStatus() == 414
     }
-
 }

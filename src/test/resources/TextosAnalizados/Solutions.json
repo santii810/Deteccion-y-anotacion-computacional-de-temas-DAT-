@@ -10,9 +10,49 @@
   "example1": [
     {
       "file": "Ej1.txt",
-      "text": "City councilors scored a victory over the mayor last week",
+      "text": "City councilors scored a victory over the mayor last week.",
       "pivot": "scored",
       "theme": "City councilors"
+    }
+  ],
+  "example4": [
+    {
+      "file": "Ej4.txt",
+      "text": "Some people won’t like it.",
+      "pivot": "like",
+      "theme": "Some people won’t"
+    }
+  ],
+  "example5": [
+    {
+      "file": "Ej5.txt",
+      "text": "Peter’s story, which contains exclusively subjective ideas, I will not dignify with a response.",
+      "pivot": "dignify",
+      "theme": "Peter’s story, which contains exclusively subjective ideas, I will not"
+    }
+  ],
+  "example6": [
+    {
+      "file": "Ej6.txt",
+      "text": "I said that language is a biological object.",
+      "pivot": "said",
+      "theme": "I"
+    }
+  ],
+  "example7": [
+    {
+      "file": "Ej7.txt",
+      "text": "I said that language has meaning.",
+      "pivot": "said",
+      "theme": "I"
+    }
+  ],
+  "exampleN": [
+    {
+      "file": "EjN.txt",
+      "text": "There is going to be a fine collection of Celtic crosses there.",
+      "pivot": "be",
+      "theme": "There is going to"
     }
   ]
 }

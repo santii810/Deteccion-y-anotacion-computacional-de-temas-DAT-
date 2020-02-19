@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences text="There is going to be a fine collection of Celtic crosses there.">
+        <pivot>going</pivot>
+        <theme>There is</theme>
+        <words id="1" form="There" lemma="there" xPosTag="EX" head="3" depRel="expl" deps="_" misc="_"/>
+        <words id="2" form="is" lemma="be" xPosTag="VBZ" head="3" depRel="aux" deps="_" misc="_"/>
+        <words id="3" form="going" lemma="go" xPosTag="VBG" head="0" depRel="root" deps="_" misc="_"/>
+        <words id="4" form="to" lemma="to" xPosTag="TO" head="8" depRel="mark" deps="_" misc="_"/>
+        <words id="5" form="be" lemma="be" xPosTag="VB" head="8" depRel="cop" deps="_" misc="_"/>
+        <words id="6" form="a" lemma="a" xPosTag="DT" head="8" depRel="det" deps="_" misc="_"/>
+        <words id="7" form="fine" lemma="fine" xPosTag="JJ" head="8" depRel="amod" deps="_" misc="_"/>
+        <words id="8" form="collection" lemma="collection" xPosTag="NN" head="3" depRel="xcomp" deps="_" misc="_"/>
+        <words id="9" form="of" lemma="of" xPosTag="IN" head="11" depRel="case" deps="_" misc="_"/>
+        <words id="10" form="Celtic" lemma="Celtic" xPosTag="JJ" head="11" depRel="amod" deps="_" misc="_"/>
+        <words id="11" form="crosses" lemma="cross" xPosTag="NNS" head="8" depRel="nmod" deps="_" misc="_"/>
+        <words id="12" form="there" lemma="there" xPosTag="RB" head="11" depRel="advmod" deps="_" misc="SpaceAfter=No"/>
+        <words id="13" form="." lemma="." xPosTag="." head="3" depRel="punct" deps="_" misc="SpaceAfter=No"/>
+    </sentences>
+</output>

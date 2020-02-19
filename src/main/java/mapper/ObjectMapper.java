@@ -1,6 +1,7 @@
-package processor;
+package mapper;
 
-import model.xml.*;
+import model.Sentence;
+import model.Word;
 import org.json.JSONObject;
 import parser.ParserResponse;
 
@@ -9,36 +10,29 @@ import java.util.List;
 
 public class ObjectMapper {
 
-    public void process(List<ParserResponse> parserResponses, ProcesedOutput out) {
-        out.getSentences().addAll(processToObjects(parserResponses));
-    }
-
-
-    private List<Sentence> processToObjects(List<ParserResponse> parserResponses) {
+    public List<Sentence> mapResponse(ParserResponse response) {
         List<Sentence> sentences = new ArrayList<>();
-        for (ParserResponse response : parserResponses) {
-            String result = (String) new JSONObject(response.getBody()).get("result");
-            for (String sentenceStr : result.split("\\n\\n")) {
-                processToSentence(sentences, sentenceStr);
-            }
+        String result = (String) new JSONObject(response.getBody()).get("result");
+        for (String sentenceStr : result.split("\\n\\n")) {
+            sentences.add(processFragmentToSentence(sentenceStr));
         }
         return sentences;
     }
 
-    private void processToSentence(List<Sentence> sentences, String sentenceStr) {
+    private Sentence processFragmentToSentence(String sentenceStr) {
         Sentence sentence = new Sentence();
-        sentences.add(sentence);
         for (String line : sentenceStr.split("\\n")) {
             if (line.startsWith("# text")) sentence.setText(line.substring(9));
             if (!line.startsWith("#")) {
-                processToWords(sentence.getWords(), line);
+                Word word = processToWords(line);
+                sentence.getWords().put(word.getId(), word);
             }
         }
+        return sentence;
     }
 
-    private void processToWords(List<Word> words, String line) {
+    private Word processToWords(String line) {
         Word word = new Word();
-        words.add(word);
         String[] attibs = line.split("\t");
         word.setId(Integer.parseInt(attibs[0]));
         word.setForm(attibs[1]);
@@ -48,5 +42,6 @@ public class ObjectMapper {
         word.setDepRel(attibs[7]);
         word.setDeps(attibs[8]);
         word.setMisc(attibs[9]);
+        return word;
     }
 }
