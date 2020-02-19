@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence>
+            <pivot id="3" form="scored" lemma="score" xPosTag="VBD" head="0" depRel="root" deps="_" misc="_"/>
+            <theme>
+                <word id="1" form="City" lemma="city" xPosTag="NN" head="2" depRel="compound" deps="_" misc="_"/>
+                <word id="2" form="councilors" lemma="councilor" xPosTag="NNS" head="3" depRel="nsubj" deps="_" misc="_"/>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

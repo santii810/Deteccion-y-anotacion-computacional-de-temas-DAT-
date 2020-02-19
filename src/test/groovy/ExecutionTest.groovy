@@ -1,9 +1,6 @@
-
-
 import groovy.json.JsonSlurper
-import mapper.ObjectsMapped
-import parser.Parser
 import mapper.ObjectMapper
+import parser.Parser
 import reader.FileReader
 import reader.Reader
 import spock.lang.Shared
@@ -17,56 +14,28 @@ class ExecutionTest extends Specification {
     def setupSpec() {
         def jsonSlurper = new JsonSlurper()
         File fl = new File("src/test/resources/TextosAnalizados/Solutions.json")
-        HashMap obj = jsonSlurper.parse(fl)
-        this.solutions = obj
+        this.solutions = jsonSlurper.parse(fl)
     }
 
     def "Text extracted is ok"() {
+
         when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]))
-        Parser parser = new Parser()
-        ObjectMapper mapper = new ObjectMapper()
-        MainHelper mainHelper = new MainHelper(reader, parser, mapper)
+        HashMap solution = solutions.get(files)[0]
+        Reader reader = new FileReader(new File(RESOURCES_URL + solution.file))
+        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper())
         mainHelper.process()
 
-//        def xml = new XmlSlurper().parseText(new File(solutions.get(sol).file[0] as String).text)
+        String outputFile = solution.file.split("\\.")[0] + ".xml"
+        def xml = new XmlSlurper().parseText(new File("out/parsedFiles" + outputFile).text)
+        println(xml)
 
         then:
 //        xml.sentences.text == solutions.get(sol).text[0]
         true
 
         where:
-        sol << ["example31", "example1"]
+        files << ["example31", "example1"]
     }
 
-    def "Pivot is correctly identified"() {
-        when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]))
-        Parser parser = new Parser()
-        ObjectMapper mapper = new ObjectMapper()
-        MainHelper readAndParseManager = new MainHelper(reader, parser, mapper)
-        ObjectsMapped po = readAndParseManager.process()
-
-        then:
-        po.getSentences().get(0).getPivot() == solutions.get(sol).pivot[0]
-
-        where:
-        sol << ["example31", "exampleN"]
-    }
-
-    def "Theme is correctly extracted"() {
-        when:
-        Reader reader = new FileReader(new File(RESOURCES_URL + solutions.get(sol).file[0]))
-        Parser parser = new Parser()
-        ObjectMapper mapper = new ObjectMapper()
-        MainHelper readAndParseManager = new MainHelper(reader, parser, mapper)
-        ObjectsMapped po = readAndParseManager.process()
-
-        then:
-        po.getSentences().get(0).getTheme() == solutions.get(sol).theme[0]
-
-        where:
-        sol << ["example31", "example1"]
-    }
 
 }
