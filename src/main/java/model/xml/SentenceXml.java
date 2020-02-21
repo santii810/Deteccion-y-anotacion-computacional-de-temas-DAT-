@@ -14,6 +14,10 @@ public class SentenceXml {
 
     @XmlElement(name = "pivot")
     private Word pivot;
+
+    @XmlAttribute(name = "text")
+    private String text;
+
     @XmlElementWrapper(name = "theme")
     @XmlElement(name = "word")
     private List<Word> theme;

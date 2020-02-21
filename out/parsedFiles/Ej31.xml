@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence>
+        <sentence text="Your Mum, does she know you're here?">
             <pivot id="6" form="know" lemma="know" xPosTag="VB" head="2" depRel="appos" deps="_" misc="_"/>
             <theme>
                 <word id="1" form="Your" lemma="you" xPosTag="PRP$" head="2" depRel="nmod:poss" deps="_" misc="_"/>

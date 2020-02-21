@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="Peter’s story, which contains exclusively subjective ideas, I will not dignify with a response.">
+            <pivot id="14" form="dignify" lemma="dignify" xPosTag="VB" head="0" depRel="root" deps="_" misc="_"/>
+            <theme>
+                <word id="1" form="Peter" lemma="Peter" xPosTag="NNP" head="3" depRel="nmod:poss" deps="_" misc="SpaceAfter=No"/>
+                <word id="2" form="’s" lemma="'s" xPosTag="POS" head="1" depRel="case" deps="_" misc="_"/>
+                <word id="3" form="story" lemma="story" xPosTag="NN" head="14" depRel="nsubj" deps="_" misc="SpaceAfter=No"/>
+                <word id="4" form="," lemma="," xPosTag="," head="3" depRel="punct" deps="_" misc="_"/>
+                <word id="5" form="which" lemma="which" xPosTag="WDT" head="6" depRel="nsubj" deps="_" misc="_"/>
+                <word id="6" form="contains" lemma="contain" xPosTag="VBZ" head="3" depRel="acl:relcl" deps="_" misc="_"/>
+                <word id="7" form="exclusively" lemma="exclusively" xPosTag="RB" head="8" depRel="advmod" deps="_" misc="_"/>
+                <word id="8" form="subjective" lemma="subjective" xPosTag="JJ" head="9" depRel="amod" deps="_" misc="_"/>
+                <word id="9" form="ideas" lemma="idea" xPosTag="NNS" head="6" depRel="obj" deps="_" misc="SpaceAfter=No"/>
+                <word id="10" form="," lemma="," xPosTag="," head="14" depRel="punct" deps="_" misc="_"/>
+                <word id="11" form="I" lemma="I" xPosTag="PRP" head="14" depRel="nsubj" deps="_" misc="_"/>
+                <word id="12" form="will" lemma="will" xPosTag="MD" head="14" depRel="aux" deps="_" misc="_"/>
+                <word id="13" form="not" lemma="not" xPosTag="RB" head="14" depRel="advmod" deps="_" misc="_"/>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

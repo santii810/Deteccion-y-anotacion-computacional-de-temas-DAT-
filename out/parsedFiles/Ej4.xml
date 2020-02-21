@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="Some people won’t like it.">
+            <pivot id="5" form="like" lemma="like" xPosTag="VB" head="0" depRel="root" deps="_" misc="_"/>
+            <theme>
+                <word id="1" form="Some" lemma="some" xPosTag="DT" head="2" depRel="det" deps="_" misc="_"/>
+                <word id="2" form="people" lemma="people" xPosTag="NNS" head="5" depRel="nsubj" deps="_" misc="_"/>
+                <word id="3" form="wo" lemma="will" xPosTag="MD" head="5" depRel="aux" deps="_" misc="SpaceAfter=No"/>
+                <word id="4" form="n’t" lemma="not" xPosTag="RB" head="5" depRel="advmod" deps="_" misc="_"/>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

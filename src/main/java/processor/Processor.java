@@ -16,6 +16,7 @@ public class Processor {
         for (Sentence sentence : out.getSentences()) {
             SentenceXml xml = new SentenceXml();
             toret.add(xml);
+            xml.setText(sentence.getText());
             int pivotId = findMainPivot(sentence);
             xml.setPivot(sentence.getWords().get(pivotId));
             if (pivotId == 1) xml.getTheme().add(xml.getPivot());
@@ -27,11 +28,30 @@ public class Processor {
     }
 
     private int findMainPivot(Sentence sentence) {
+        if (sentence.getWords().values().stream().map(Word::getDepRel).anyMatch(i -> i.equals("apos")) &&
+                sentence.getWords().values().stream().map(Word::getXPosTag).anyMatch(i -> i.startsWith("V"))) {
+            //caso1
+        } else {
+            if ((sentence.getWords().values().stream().map(Word::getDepRel).anyMatch(i -> i.equals("root"))) {
+                //caso 2 y 3
+                if (sentence.getWords().values().stream().map(Word::getXPosTag).anyMatch(i -> i.startsWith("V"))) {
+                    //Caso 2
+                    Word word = sentence.getWords().values().stream().filter(i-> i.getDepRel().equals("root")).filter(i-> i.getXPosTag().startsWith("V"))
+                } else {
+                    //caso 3
+                }
+            }else{
+                //ERROR, no está cntemplado
+            }
+        }
+
         int pivot = checkFirstGeneralCase(sentence);
         if (pivot == -1) pivot = checkSecondGeneralCase(sentence);
+        if (pivot == -1) pivot = checkThirdGeneralCase(sentence);
 
         return pivot;
     }
+
 
     private int checkFirstGeneralCase(Sentence sentence) {
         for (int wordId : sentence.getWords().keySet()) {
@@ -53,6 +73,20 @@ public class Processor {
         }
         return -1;
     }
+
+
+    private int checkThirdGeneralCase(Sentence sentence) {
+
+        for (int wordId : sentence.getWords().keySet()) {
+            Word word = sentence.getWords().get(wordId);
+            if (word.getDepRel().equals("root") && word.getde().startsWith("V")) {
+                int pivotPosition = checkIsGoingTo(sentence, word);
+                return pivotPosition == -1 ? wordId : pivotPosition;
+            }
+        }
+        return -1;
+    }
+
 
     /**
      * @return id of the pivot or -1 if not this construct
