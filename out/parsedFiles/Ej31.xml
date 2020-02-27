@@ -2,13 +2,13 @@
 <output>
     <sentences>
         <sentence text="Your Mum, does she know you're here?">
-            <pivot id="6" form="know" lemma="know" xPosTag="VB" head="2" depRel="appos" deps="_" misc="_"/>
+            <pivot id="6" xPosTag="VB">know</pivot>
             <theme>
-                <word id="1" form="Your" lemma="you" xPosTag="PRP$" head="2" depRel="nmod:poss" deps="_" misc="_"/>
-                <word id="2" form="Mum" lemma="Mum" xPosTag="NN" head="0" depRel="root" deps="_" misc="SpaceAfter=No"/>
-                <word id="3" form="," lemma="," xPosTag="," head="2" depRel="punct" deps="_" misc="_"/>
-                <word id="4" form="does" lemma="do" xPosTag="VBZ" head="6" depRel="aux" deps="_" misc="_"/>
-                <word id="5" form="she" lemma="she" xPosTag="PRP" head="6" depRel="nsubj" deps="_" misc="_"/>
+                <word id="1" xPosTag="PRP$">Your</word>
+                <word id="2" xPosTag="NN">Mum</word>
+                <word id="3" xPosTag=",">,</word>
+                <word id="4" xPosTag="VBZ">does</word>
+                <word id="5" xPosTag="PRP">she</word>
             </theme>
         </sentence>
     </sentences>

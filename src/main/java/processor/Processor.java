@@ -14,37 +14,24 @@ public class Processor {
     public List<SentenceXml> process(ObjectsMapped out) {
         List<SentenceXml> toret = new ArrayList<>();
         for (Sentence sentence : out.getSentences()) {
-            SentenceXml xml = new SentenceXml();
-            toret.add(xml);
-            xml.setText(sentence.getText());
-            int pivotId = findMainPivot(sentence);
-            xml.setPivot(sentence.getWords().get(pivotId));
-            if (pivotId == 1) xml.getTheme().add(xml.getPivot());
-            xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
-                    .map(Map.Entry::getValue).collect(Collectors.toList()));
+            String text = sentence.getText().replace("\"", "");
+            if (!text.isEmpty()) {
+
+                SentenceXml xml = new SentenceXml();
+                toret.add(xml);
+                xml.setText(text);
+                int pivotId = findMainPivot(sentence);
+                xml.setPivot(sentence.getWords().get(pivotId));
+                if (pivotId == 1) xml.getTheme().add(xml.getPivot());
+                xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
+                        .map(Map.Entry::getValue).collect(Collectors.toList()));
+            }
         }
 
         return toret;
     }
 
     private int findMainPivot(Sentence sentence) {
-        if (sentence.getWords().values().stream().map(Word::getDepRel).anyMatch(i -> i.equals("apos")) &&
-                sentence.getWords().values().stream().map(Word::getXPosTag).anyMatch(i -> i.startsWith("V"))) {
-            //caso1
-        } else {
-            if ((sentence.getWords().values().stream().map(Word::getDepRel).anyMatch(i -> i.equals("root"))) {
-                //caso 2 y 3
-                if (sentence.getWords().values().stream().map(Word::getXPosTag).anyMatch(i -> i.startsWith("V"))) {
-                    //Caso 2
-                    Word word = sentence.getWords().values().stream().filter(i-> i.getDepRel().equals("root")).filter(i-> i.getXPosTag().startsWith("V"))
-                } else {
-                    //caso 3
-                }
-            }else{
-                //ERROR, no está cntemplado
-            }
-        }
-
         int pivot = checkFirstGeneralCase(sentence);
         if (pivot == -1) pivot = checkSecondGeneralCase(sentence);
         if (pivot == -1) pivot = checkThirdGeneralCase(sentence);
@@ -79,7 +66,7 @@ public class Processor {
 
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
-            if (word.getDepRel().equals("root") && word.getde().startsWith("V")) {
+            if (word.getDepRel().equals("cop")) {
                 int pivotPosition = checkIsGoingTo(sentence, word);
                 return pivotPosition == -1 ? wordId : pivotPosition;
             }
@@ -95,8 +82,8 @@ public class Processor {
         if (!word.getForm().equals("going"))
             return -1;
         int number = word.getId();
-        if (sentence.getWords().get(word.getId()).getXPosTag().equals("TO")
-                && sentence.getWords().get(word.getId()).getXPosTag().startsWith("V"))
+        if (sentence.getWords().get(word.getId() + 1).getXPosTag().equals("TO")
+                && sentence.getWords().get(word.getId() + 2).getXPosTag().startsWith("V"))
             return number + 2;
         return -1;
     }

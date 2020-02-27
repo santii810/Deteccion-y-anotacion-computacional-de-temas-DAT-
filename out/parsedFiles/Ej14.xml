@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="“What deters them is the likelihood of being caught,” he said.">
+            <pivot id="14" xPosTag="VBD">said</pivot>
+            <theme>
+                <word id="1" xPosTag="``">“</word>
+                <word id="2" xPosTag="WP">What</word>
+                <word id="3" xPosTag="VBZ">deters</word>
+                <word id="4" xPosTag="PRP">them</word>
+                <word id="5" xPosTag="VBZ">is</word>
+                <word id="6" xPosTag="DT">the</word>
+                <word id="7" xPosTag="NN">likelihood</word>
+                <word id="8" xPosTag="IN">of</word>
+                <word id="9" xPosTag="VBG">being</word>
+                <word id="10" xPosTag="VBN">caught</word>
+                <word id="11" xPosTag=",">,</word>
+                <word id="12" xPosTag="''">”</word>
+                <word id="13" xPosTag="PRP">he</word>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

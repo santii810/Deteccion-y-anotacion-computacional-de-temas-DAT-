@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="John is known to be playing football.">
+            <pivot id="4" xPosTag="VBN">known</pivot>
+            <theme>
+                <word id="1" xPosTag="``">"</word>
+                <word id="2" xPosTag="NNP">John</word>
+                <word id="3" xPosTag="VBZ">is</word>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

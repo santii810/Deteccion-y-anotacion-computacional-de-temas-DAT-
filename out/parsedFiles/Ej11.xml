@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="When I beat it, I could see hundreds of new Pokémon">
+            <pivot id="9" xPosTag="VB">see</pivot>
+            <theme>
+                <word id="1" xPosTag="``">"</word>
+                <word id="2" xPosTag="WRB">When</word>
+                <word id="3" xPosTag="PRP">I</word>
+                <word id="4" xPosTag="VBP">beat</word>
+                <word id="5" xPosTag="PRP">it</word>
+                <word id="6" xPosTag=",">,</word>
+                <word id="7" xPosTag="PRP">I</word>
+                <word id="8" xPosTag="MD">could</word>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

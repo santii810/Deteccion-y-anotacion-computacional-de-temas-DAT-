@@ -15,6 +15,22 @@
       "theme": "City councilors"
     }
   ],
+  "example2": [
+    {
+      "file": "Ej2.txt",
+      "text": "It is a false belief.",
+      "theme": "It",
+      "pivot": "is"
+    }
+  ],
+  "example3": [
+    {
+      "file": "Ej3.txt",
+      "text": "The vote may come back to haunt them.",
+      "theme": "The vote may",
+      "pivot": "come"
+    }
+  ],
   "example4": [
     {
       "file": "Ej4.txt",
@@ -45,6 +61,70 @@
       "text": "I said that language has meaning.",
       "pivot": "said",
       "theme": "I"
+    }
+  ],
+  "example8": [
+    {
+      "file": "Ej8.txt",
+      "text": "What the duke gave to my aunt was that teapot.",
+      "theme": "What the duke gave to my aunt",
+      "pivot": "was"
+    }
+  ],
+  "example9": [
+    {
+      "file": "Ej9.txt",
+      "text": "There is going to be a fine collection of Celtic crosses there.",
+      "theme": "There is going to",
+      "pivot": "be"
+    }
+  ],
+  "example10": [
+    {
+      "file": "Ej10.txt",
+      "text": "She is going to sign opera.",
+      "theme": "She is going to",
+      "pivot": "sign"
+    }
+  ],
+  "example11": [
+    {
+      "file": "Ej11.txt",
+      "text": "When I beat it, I could see hundreds of new Pokémon",
+      "theme": "When I beat it, I could",
+      "pivot": "see"
+    }
+  ],
+  "example12": [
+    {
+      "file": "Ej12.txt",
+      "text": "As regards the Pope John Paul himself, he is known to be keen on sport.",
+      "theme": "As regards the Pope John Paul himself, he is",
+      "pivot": "known"
+    }
+  ],
+  "example13": [
+    {
+      "file": "Ej13.txt",
+      "text": "John is known to be playing football.",
+      "theme": "John is",
+      "pivot": "known"
+    }
+  ],
+  "example14": [
+    {
+      "file": "Ej14.txt",
+      "text": "“What deters them is the likelihood of being caught,” he said.",
+      "theme": "“What deters them is the likelihood of being caught,” he",
+      "pivot": "said"
+    }
+  ],
+  "example15": [
+    {
+      "file": "Ej15.txt",
+      "text": "I said that language is a biological object.",
+      "theme": "I",
+      "pivot": "said"
     }
   ],
   "exampleN": [

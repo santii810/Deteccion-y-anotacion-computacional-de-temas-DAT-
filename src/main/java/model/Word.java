@@ -11,20 +11,22 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "word")
 @ToString
 public class Word {
+    @XmlValue
+    private String form;
+
     @XmlAttribute
     private int id;
     @XmlAttribute
-    private String form;
-    @XmlAttribute
-    private String lemma;
-    @XmlAttribute
     private String xPosTag;
-    @XmlAttribute
-    private int head;
-    @XmlAttribute
+
+    @XmlTransient
     private String depRel;
-    @XmlAttribute
+    @XmlTransient
+    private String lemma;
+    @XmlTransient
+    private int head;
+    @XmlTransient
     private String deps;
-    @XmlAttribute
+    @XmlTransient
     private String misc;
 }

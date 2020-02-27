@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="It is a false belief.">
-            <pivot id="2" xPosTag="VBZ">is</pivot>
+        <sentence text="I said that language has meaning.">
+            <pivot id="2" xPosTag="VBD">said</pivot>
             <theme>
-                <word id="1" xPosTag="PRP">It</word>
+                <word id="1" xPosTag="PRP">I</word>
             </theme>
         </sentence>
     </sentences>

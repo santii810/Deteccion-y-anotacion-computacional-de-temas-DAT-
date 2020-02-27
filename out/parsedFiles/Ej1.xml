@@ -2,10 +2,10 @@
 <output>
     <sentences>
         <sentence text="City councilors scored a victory over the mayor last week.">
-            <pivot id="3" form="scored" lemma="score" xPosTag="VBD" head="0" depRel="root" deps="_" misc="_"/>
+            <pivot id="3" xPosTag="VBD">scored</pivot>
             <theme>
-                <word id="1" form="City" lemma="city" xPosTag="NN" head="2" depRel="compound" deps="_" misc="_"/>
-                <word id="2" form="councilors" lemma="councilor" xPosTag="NNS" head="3" depRel="nsubj" deps="_" misc="_"/>
+                <word id="1" xPosTag="NN">City</word>
+                <word id="2" xPosTag="NNS">councilors</word>
             </theme>
         </sentence>
     </sentences>
