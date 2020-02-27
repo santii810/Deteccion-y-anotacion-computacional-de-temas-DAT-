@@ -63,12 +63,11 @@ public class Processor {
 
 
     private int checkThirdGeneralCase(Sentence sentence) {
-
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
-            if (word.getDepRel().equals("cop")) {
-                int pivotPosition = checkIsGoingTo(sentence, word);
-                return pivotPosition == -1 ? wordId : pivotPosition;
+            if (word.getDepRel().equals("root") && word.getXPosTag().startsWith("V")) {
+                //TODO revisar
+                return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().get().getId();
             }
         }
         return -1;

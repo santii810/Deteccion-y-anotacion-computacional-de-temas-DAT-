@@ -21,8 +21,9 @@ public class FileReader implements Reader {
         StringBuilder builder = new StringBuilder();
         while (hasMoreContent() && builder.toString().length() < (MAX_SIZE - 500)) {
             builder.append(fileScanner.nextLine());
+            builder.append(" ");
         }
-        return new FileFragment(file.getName(), builder.toString(), !hasMoreContent());
+        return new FileFragment(file.getName(), builder.toString().replace("-", ""), !hasMoreContent());
     }
 
     public String getFilename() {
