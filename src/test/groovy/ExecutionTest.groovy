@@ -1,11 +1,14 @@
 import groovy.json.JsonSlurper
 import groovy.util.slurpersupport.GPathResult
+import lombok.extern.slf4j.Slf4j
 import mapper.ObjectMapper
 import parser.Parser
 import reader.FileReader
 import reader.Reader
 import spock.lang.Specification
 
+
+@Slf4j
 class ExecutionTest extends Specification {
     String RESOURCES_URL = "src/test/resources/TextosAnalizados/"
     static def jsonSolutions = [:]
@@ -27,7 +30,7 @@ class ExecutionTest extends Specification {
 
         String outputFile = solution.file.split("\\.")[0] + ".xml"
         GPathResult xml = new XmlSlurper().parse(new File('.\\out\\Parsedfiles\\' + outputFile))
-        println("Check correct parsing of ${solution.file}")
+        log.debug("Check correct parsing of ${solution.file}")
 
         then:
         xml.sentences.sentence.@text == solution.text

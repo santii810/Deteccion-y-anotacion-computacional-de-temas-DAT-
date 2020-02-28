@@ -1,19 +1,18 @@
 package parser;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URLEncoder;
 
+@Slf4j
 public class Parser {
-    final static Logger logger = Logger.getLogger(Parser.class);
 
     private static final String REST_ENDPOINT = "http://lindat.mff.cuni.cz/services/udpipe/api/process";
     private static final String MODEL_EN = "english-ewt-ud-2.4-190531";
@@ -29,8 +28,9 @@ public class Parser {
 
     public ParserResponse send(String text) throws IOException {
         String completeEndpoint = REST_ENDPOINT + "?" + getQueryParams() + "&data=" + URLEncoder.encode(text, "UTF-8");
-        logger.info("Sending request to UDPipe");
-        logger.debug("Complete endpoint: " + completeEndpoint);
+
+        log.info("Sending request to UDPipe");
+        log.trace("Complete endpoint: " + completeEndpoint);
 
 
         HttpGet request = new HttpGet(completeEndpoint);
@@ -48,8 +48,9 @@ public class Parser {
                 String result = EntityUtils.toString(entity);
                 responseModel.setBody(result);
             }
-
         }
+        log.debug(Integer.toString(responseModel.getHttpStatus()));
+        log.trace(responseModel.toString());
         return responseModel;
     }
 }

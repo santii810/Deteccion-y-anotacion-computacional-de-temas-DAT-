@@ -1,20 +1,20 @@
-import parser.Parser;
+import lombok.extern.slf4j.Slf4j;
 import mapper.ObjectMapper;
+import parser.Parser;
 import reader.FileReader;
 import reader.Reader;
 
 import javax.xml.bind.JAXBException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
+@Slf4j
 public class Main {
 
-//    final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         try {
             String filename = "src/test/resources/ame06_a01.txt";
+            log.info("Ininicando análisis de fichero: " + filename);
             Reader reader = new FileReader(new File(filename));
             Parser parser = new Parser();
             ObjectMapper mapper = new ObjectMapper();
@@ -23,11 +23,9 @@ public class Main {
 
 
         } catch (FileNotFoundException e) {
-//            logger.error("File not found " + e);
-            e.printStackTrace();
+            log.error("File not found " + e);
         } catch (IOException e) {
-//            logger.error(e);
-            e.printStackTrace();
+            log.error(e.getMessage());
         } catch (JAXBException e) {
             e.printStackTrace();
         }

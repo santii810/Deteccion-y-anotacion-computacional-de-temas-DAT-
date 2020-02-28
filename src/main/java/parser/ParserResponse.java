@@ -1,11 +1,7 @@
 package parser;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import org.json.JSONObject;
+import lombok.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -14,14 +10,13 @@ import javax.xml.bind.annotation.*;
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "parserResponse")
+@ToString
 public class ParserResponse {
-    @XmlAttribute
+
     private int httpStatus;
-    @XmlElement(name = "response")
     private String body;
 
     public ParserResponse(int httpStatus) {
         this.httpStatus = httpStatus;
-        this.body = body;
     }
 }

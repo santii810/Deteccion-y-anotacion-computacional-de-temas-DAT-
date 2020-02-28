@@ -1,9 +1,12 @@
 package reader;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+@Slf4j
 public class FileReader implements Reader {
     private File file;
     private Scanner fileScanner;
@@ -23,7 +26,11 @@ public class FileReader implements Reader {
             builder.append(fileScanner.nextLine());
             builder.append(" ");
         }
-        return new FileFragment(file.getName(), builder.toString().replace("-", ""), !hasMoreContent());
+        String toret = builder.toString().replace("-", "");
+        FileFragment fragment = new FileFragment(file.getName(), toret, !hasMoreContent());
+
+        log.debug("Retornando FileFragment : " + fragment.toString());
+        return fragment;
     }
 
     public String getFilename() {

@@ -15,6 +15,7 @@ public class Processor {
         List<SentenceXml> toret = new ArrayList<>();
         for (Sentence sentence : out.getSentences()) {
             String text = sentence.getText().replace("\"", "");
+            //FIXME esta comprobación no debería estár en un punto tan avanzado del análisis
             if (!text.isEmpty()) {
 
                 SentenceXml xml = new SentenceXml();
@@ -35,6 +36,7 @@ public class Processor {
         int pivot = checkFirstGeneralCase(sentence);
         if (pivot == -1) pivot = checkSecondGeneralCase(sentence);
         if (pivot == -1) pivot = checkThirdGeneralCase(sentence);
+
 
         return pivot;
     }
