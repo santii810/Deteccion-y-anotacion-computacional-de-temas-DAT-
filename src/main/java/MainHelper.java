@@ -32,12 +32,14 @@ public class MainHelper {
         ProcessedOutput output = new ProcessedOutput();
         while (reader.hasMoreContent()) {
             FileFragment fileFragment = reader.read();
-            ParserResponse parserResponse = parser.send(fileFragment.getText());
-            ObjectsMapped objects = new ObjectsMapped(objectMapper.mapResponse(parserResponse));
-            output.getSentences().addAll(processor.process(objects));
-            if (fileFragment.isEndOfFile()) {
-                Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
-                output = new ProcessedOutput();
+            if (!fileFragment.isNullOrEmpty()) {
+                ParserResponse parserResponse = parser.send(fileFragment.getText());
+                ObjectsMapped objects = new ObjectsMapped(objectMapper.mapResponse(parserResponse));
+                output.getSentences().addAll(processor.process(objects));
+                if (fileFragment.isEndOfFile()) {
+                    Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
+                    output = new ProcessedOutput();
+                }
             }
         }
     }

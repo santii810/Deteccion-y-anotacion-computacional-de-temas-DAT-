@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="It is a false belief.">
+        <sentence text="It is a false belief." state="OK">
             <pivot id="2" xPosTag="VBZ">is</pivot>
             <theme>
                 <word id="1" xPosTag="PRP">It</word>

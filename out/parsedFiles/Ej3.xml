@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="The vote may come back to haunt them.">
+        <sentence text="The vote may come back to haunt them." state="OK">
             <pivot id="4" xPosTag="VB">come</pivot>
             <theme>
                 <word id="1" xPosTag="DT">The</word>

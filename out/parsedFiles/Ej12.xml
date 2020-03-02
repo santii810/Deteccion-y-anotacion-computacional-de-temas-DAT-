@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="As regards the Pope John Paul himself, he is known to be keen on sport.">
-            <pivot id="12" xPosTag="VBN">known</pivot>
+        <sentence text="As regards the Pope John Paul himself, he is known to be keen on sport." state="OK">
+            <pivot id="11" xPosTag="VBN">known</pivot>
             <theme>
-                <word id="1" xPosTag="``">"</word>
-                <word id="2" xPosTag="IN">As</word>
-                <word id="3" xPosTag="NNS">regards</word>
-                <word id="4" xPosTag="DT">the</word>
-                <word id="5" xPosTag="NNP">Pope</word>
-                <word id="6" xPosTag="NNP">John</word>
-                <word id="7" xPosTag="NNP">Paul</word>
-                <word id="8" xPosTag="PRP">himself</word>
-                <word id="9" xPosTag=",">,</word>
-                <word id="10" xPosTag="PRP">he</word>
-                <word id="11" xPosTag="VBZ">is</word>
+                <word id="1" xPosTag="IN">As</word>
+                <word id="2" xPosTag="NNS">regards</word>
+                <word id="3" xPosTag="DT">the</word>
+                <word id="4" xPosTag="NNP">Pope</word>
+                <word id="5" xPosTag="NNP">John</word>
+                <word id="6" xPosTag="NNP">Paul</word>
+                <word id="7" xPosTag="PRP">himself</word>
+                <word id="8" xPosTag=",">,</word>
+                <word id="9" xPosTag="PRP">he</word>
+                <word id="10" xPosTag="VBZ">is</word>
             </theme>
         </sentence>
     </sentences>

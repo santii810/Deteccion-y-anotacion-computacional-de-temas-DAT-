@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="I said that language is a biological object.">
-            <pivot id="3" xPosTag="VBD">said</pivot>
+        <sentence text="I said that language is a biological object." state="OK">
+            <pivot id="2" xPosTag="VBD">said</pivot>
             <theme>
-                <word id="1" xPosTag="``">"</word>
-                <word id="2" xPosTag="PRP">I</word>
+                <word id="1" xPosTag="PRP">I</word>
             </theme>
         </sentence>
     </sentences>

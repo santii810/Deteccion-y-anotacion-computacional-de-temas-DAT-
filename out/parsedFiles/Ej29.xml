@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<output>
+    <sentences>
+        <sentence text="&gt;&gt; Is John a doctor?" state="OK">
+            <pivot id="2" xPosTag="VBZ">Is</pivot>
+            <theme>
+                <word id="1" xPosTag="-RRB-">&gt;&gt;</word>
+            </theme>
+        </sentence>
+    </sentences>
+</output>

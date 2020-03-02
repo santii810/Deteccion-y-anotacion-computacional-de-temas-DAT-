@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="Some people won’t like it.">
+        <sentence text="Some people won’t like it." state="OK">
             <pivot id="5" xPosTag="VB">like</pivot>
             <theme>
                 <word id="1" xPosTag="DT">Some</word>

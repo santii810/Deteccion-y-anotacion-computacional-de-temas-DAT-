@@ -15,35 +15,55 @@ public class Processor {
     public List<SentenceXml> process(ObjectsMapped out) {
         List<SentenceXml> toret = new ArrayList<>();
         for (Sentence sentence : out.getSentences()) {
-            String text = sentence.getText().replace("\"", "");
-            //FIXME esta comprobación no debería estár en un punto tan avanzado del análisis
-            if (!text.isEmpty()) {
-                SentenceXml xml = new SentenceXml();
-                toret.add(xml);
-                xml.setText(text);
-                int pivotId = findMainPivot(sentence);
-                if (pivotId == -1) {
-                    xml.setState(State.KO);
-                } else {
-                    xml.setState(State.OK);
-                    xml.setPivot(sentence.getWords().get(pivotId));
-                    if (pivotId == 1) xml.getTheme().add(xml.getPivot());
-                    xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
-                            .map(Map.Entry::getValue).collect(Collectors.toList()));
-                }
-            }
+            toret.add(processSentence(sentence));
         }
-
         return toret;
     }
 
+    private SentenceXml processSentence(Sentence sentence) {
+        SentenceXml xml = new SentenceXml();
+        xml.setText(sentence.getText());
+        int pivotId = findMainPivot(sentence);
+        if (pivotId == -1) {
+            xml.setState(State.KO);
+        } else {
+            System.out.println(pivotId);
+            xml.setState(State.OK);
+            xml.setPivot(sentence.getWords().get(pivotId));
+            if (pivotId == 1) xml.getTheme().add(xml.getPivot());
+            xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
+                    .map(Map.Entry::getValue).collect(Collectors.toList()));
+        }
+        return xml;
+    }
+
     private int findMainPivot(Sentence sentence) {
-        int pivot = checkFirstGeneralCase(sentence);
+        //SpecialContructions
+        int pivot = checkBeAboutTo(sentence);
+        if (pivot == -1) pivot = checkLets(sentence);
+        //Regular cases
+        if (pivot == -1) pivot = checkFirstGeneralCase(sentence);
         if (pivot == -1) pivot = checkSecondGeneralCase(sentence);
         if (pivot == -1) pivot = checkThirdGeneralCase(sentence);
 
 
         return pivot;
+    }
+
+    private int checkLets(Sentence sentence) {
+
+        int id = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("let")).findFirst().map(Word::getId).orElse(-1);
+        if (id != -1 && sentence.getWords().get(id + 1).getLemma().equals("'s'")
+                && sentence.getWords().get(id + 2).getDepRel().equals("xcomp") && sentence.getWords().get(id + 2).getXPosTag().startsWith("V"))
+            return id + 3;
+        return -1;
+    }
+
+    private int checkBeAboutTo(Sentence sentence) {
+        int id = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("be")).findFirst().map(Word::getId).orElse(-1);
+        if (id != -1 && sentence.getWords().get(id + 1).getLemma().equals("about") && sentence.getWords().get(id + 2).getLemma().equals("to"))
+            return id + 3;
+        return -1;
     }
 
 
@@ -73,7 +93,6 @@ public class Processor {
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
             if (word.getDepRel().equals("root")) {
-                //TODO revisar
                 return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().get().getId();
             }
         }

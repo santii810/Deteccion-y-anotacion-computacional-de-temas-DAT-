@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="She is going to sign opera.">
-            <pivot id="6" xPosTag="VB">sign</pivot>
+        <sentence text="She is going to sign opera." state="OK">
+            <pivot id="5" xPosTag="VB">sign</pivot>
             <theme>
-                <word id="1" xPosTag="``">"</word>
-                <word id="2" xPosTag="PRP">She</word>
-                <word id="3" xPosTag="VBZ">is</word>
-                <word id="4" xPosTag="VBG">going</word>
-                <word id="5" xPosTag="TO">to</word>
+                <word id="1" xPosTag="PRP">She</word>
+                <word id="2" xPosTag="VBZ">is</word>
+                <word id="3" xPosTag="VBG">going</word>
+                <word id="4" xPosTag="TO">to</word>
             </theme>
         </sentence>
     </sentences>

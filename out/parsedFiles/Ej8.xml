@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <output>
     <sentences>
-        <sentence text="What the duke gave to my aunt was that teapot.">
-            <pivot id="9" xPosTag="VBD">was</pivot>
+        <sentence text="What the duke gave to my aunt was that teapot." state="OK">
+            <pivot id="8" xPosTag="VBD">was</pivot>
             <theme>
-                <word id="1" xPosTag="``">"</word>
-                <word id="2" xPosTag="WP">What</word>
-                <word id="3" xPosTag="DT">the</word>
-                <word id="4" xPosTag="NN">duke</word>
-                <word id="5" xPosTag="VBD">gave</word>
-                <word id="6" xPosTag="IN">to</word>
-                <word id="7" xPosTag="PRP$">my</word>
-                <word id="8" xPosTag="NN">aunt</word>
+                <word id="1" xPosTag="WP">What</word>
+                <word id="2" xPosTag="DT">the</word>
+                <word id="3" xPosTag="NN">duke</word>
+                <word id="4" xPosTag="VBD">gave</word>
+                <word id="5" xPosTag="IN">to</word>
+                <word id="6" xPosTag="PRP$">my</word>
+                <word id="7" xPosTag="NN">aunt</word>
             </theme>
         </sentence>
     </sentences>

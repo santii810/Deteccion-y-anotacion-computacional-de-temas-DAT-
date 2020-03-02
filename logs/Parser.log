@@ -1,0 +1,136 @@
+2020.03.02 19:21:12.474 [INFO] reader.FileReader: File Ej1.txt is opened.
+2020.03.02 19:21:12.498 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej1.txt, text=City councilors scored a victory over the mayor last week. , isEndOfFile=true)
+2020.03.02 19:21:12.499 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:14.913 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:15.065 [INFO] reader.FileReader: File Ej2.txt is opened.
+2020.03.02 19:21:15.066 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej2.txt, text=It is a false belief. , isEndOfFile=true)
+2020.03.02 19:21:15.067 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:15.238 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:15.247 [INFO] reader.FileReader: File Ej3.txt is opened.
+2020.03.02 19:21:15.247 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej3.txt, text=The vote may come back to haunt them. , isEndOfFile=true)
+2020.03.02 19:21:15.248 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:15.409 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:15.417 [INFO] reader.FileReader: File Ej4.txt is opened.
+2020.03.02 19:21:15.418 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej4.txt, text=Some people won’t like it. , isEndOfFile=true)
+2020.03.02 19:21:15.419 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:15.974 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:15.983 [INFO] reader.FileReader: File Ej5.txt is opened.
+2020.03.02 19:21:15.984 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej5.txt, text=Peter’s story, which contains exclusively subjective ideas, I will not dignify with a response. , isEndOfFile=true)
+2020.03.02 19:21:15.984 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:16.162 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:16.172 [INFO] reader.FileReader: File Ej6.txt is opened.
+2020.03.02 19:21:16.173 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej6.txt, text=I said that language is a biological object. , isEndOfFile=true)
+2020.03.02 19:21:16.173 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:16.334 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:16.344 [INFO] reader.FileReader: File Ej7.txt is opened.
+2020.03.02 19:21:16.344 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej7.txt, text=I said that language has meaning. , isEndOfFile=true)
+2020.03.02 19:21:16.345 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:16.493 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:16.502 [INFO] reader.FileReader: File Ej8.txt is opened.
+2020.03.02 19:21:16.503 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej8.txt, text=What the duke gave to my aunt was that teapot. , isEndOfFile=true)
+2020.03.02 19:21:16.503 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:16.670 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:16.682 [INFO] reader.FileReader: File Ej9.txt is opened.
+2020.03.02 19:21:16.682 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej9.txt, text=There is going to be a fine collection of Celtic crosses there. , isEndOfFile=true)
+2020.03.02 19:21:16.683 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:16.842 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:16.851 [INFO] reader.FileReader: File Ej10.txt is opened.
+2020.03.02 19:21:16.851 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej10.txt, text=She is going to sign opera. , isEndOfFile=true)
+2020.03.02 19:21:16.851 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.004 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.012 [INFO] reader.FileReader: File Ej11.txt is opened.
+2020.03.02 19:21:17.013 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej11.txt, text=When I beat it, I could see hundreds of new Pokémon , isEndOfFile=true)
+2020.03.02 19:21:17.013 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.179 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.187 [INFO] reader.FileReader: File Ej12.txt is opened.
+2020.03.02 19:21:17.188 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej12.txt, text=As regards the Pope John Paul himself, he is known to be keen on sport. , isEndOfFile=true)
+2020.03.02 19:21:17.188 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.347 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.358 [INFO] reader.FileReader: File Ej13.txt is opened.
+2020.03.02 19:21:17.359 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej13.txt, text=John is known to be playing football. , isEndOfFile=true)
+2020.03.02 19:21:17.359 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.514 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.521 [INFO] reader.FileReader: File Ej14.txt is opened.
+2020.03.02 19:21:17.522 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej14.txt, text=“What deters them is the likelihood of being caught,” he said. , isEndOfFile=true)
+2020.03.02 19:21:17.523 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.697 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.705 [INFO] reader.FileReader: File Ej15.txt is opened.
+2020.03.02 19:21:17.705 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej15.txt, text=I said that language is a biological object. , isEndOfFile=true)
+2020.03.02 19:21:17.706 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:17.872 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:17.882 [INFO] reader.FileReader: File Ej16.txt is opened.
+2020.03.02 19:21:17.883 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej16.txt, text= >> Children, the story is about to continue. , isEndOfFile=true)
+2020.03.02 19:21:17.884 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.070 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.081 [INFO] reader.FileReader: File Ej17.txt is opened.
+2020.03.02 19:21:18.082 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej17.txt, text= >> Ladies and gentlemen, last time I was talking about the notion of choice. , isEndOfFile=true)
+2020.03.02 19:21:18.083 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.273 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.274 [INFO] reader.FileReader: File Ej18.txt is opened.
+2020.03.02 19:21:18.275 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej18.txt, text= >> So some of the comments I’ve scrubbed out. , isEndOfFile=true)
+2020.03.02 19:21:18.275 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.450 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.452 [INFO] reader.FileReader: File Ej19.txt is opened.
+2020.03.02 19:21:18.452 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej19.txt, text= >> On the other hand, in my view, the results do suggest a clear preference for continuing some kind of bilingual program. , isEndOfFile=true)
+2020.03.02 19:21:18.453 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.654 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.656 [INFO] reader.FileReader: File Ej20.txt is opened.
+2020.03.02 19:21:18.657 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej20.txt, text= >> Well guess I‘ll go and put my washing on the line. , isEndOfFile=true)
+2020.03.02 19:21:18.657 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.825 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.826 [INFO] reader.FileReader: File Ej21.txt is opened.
+2020.03.02 19:21:18.826 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej21.txt, text= >> Who wants a glass of white wine? , isEndOfFile=true)
+2020.03.02 19:21:18.827 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:18.994 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:18.996 [INFO] reader.FileReader: File Ej22.txt is opened.
+2020.03.02 19:21:18.996 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej22.txt, text= >> Where did you get that from? , isEndOfFile=true)
+2020.03.02 19:21:18.997 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.155 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.156 [INFO] reader.FileReader: File Ej23.txt is opened.
+2020.03.02 19:21:19.157 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej23.txt, text= >> Where is John? , isEndOfFile=true)
+2020.03.02 19:21:19.157 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.313 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.315 [INFO] reader.FileReader: File Ej24.txt is opened.
+2020.03.02 19:21:19.316 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej24.txt, text= >> Where is John living? , isEndOfFile=true)
+2020.03.02 19:21:19.316 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.468 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.470 [INFO] reader.FileReader: File Ej25.txt is opened.
+2020.03.02 19:21:19.470 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej25.txt, text= >> How many hours was John working? , isEndOfFile=true)
+2020.03.02 19:21:19.470 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.637 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.638 [INFO] reader.FileReader: File Ej26.txt is opened.
+2020.03.02 19:21:19.639 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej26.txt, text= >> After the incident where did you go? , isEndOfFile=true)
+2020.03.02 19:21:19.639 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.805 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.807 [INFO] reader.FileReader: File Ej27.txt is opened.
+2020.03.02 19:21:19.807 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej27.txt, text= >> After that incident where did you go? , isEndOfFile=true)
+2020.03.02 19:21:19.807 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:19.961 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:19.963 [INFO] reader.FileReader: File Ej28.txt is opened.
+2020.03.02 19:21:19.963 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej28.txt, text= >> After all, except for music, what did they have in common? , isEndOfFile=true)
+2020.03.02 19:21:19.963 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:20.124 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:20.126 [INFO] reader.FileReader: File Ej29.txt is opened.
+2020.03.02 19:21:20.126 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej29.txt, text= >> Is John a doctor? , isEndOfFile=true)
+2020.03.02 19:21:20.127 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:20.317 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:20.500 [INFO] reader.FileReader: File Ej31.txt is opened.
+2020.03.02 19:21:20.500 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej31.txt, text=Your Mum, does she know you're here? , isEndOfFile=true)
+2020.03.02 19:21:20.500 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:20.662 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:20.671 [INFO] reader.FileReader: File Ej33.txt is opened.
+2020.03.02 19:21:20.671 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej33.txt, text= >> Turn it down. , isEndOfFile=true)
+2020.03.02 19:21:20.671 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:20.853 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:20.855 [INFO] reader.FileReader: File Ej34.txt is opened.
+2020.03.02 19:21:20.856 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej34.txt, text= >> Let's cook at the Ivy. , isEndOfFile=true)
+2020.03.02 19:21:20.856 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:21.038 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:21.040 [INFO] reader.FileReader: File Ej35.txt is opened.
+2020.03.02 19:21:21.040 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej35.txt, text= >> Don't let's quarrel about it. , isEndOfFile=true)
+2020.03.02 19:21:21.040 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:21.205 [DEBUG] parser.Parser: 200
+2020.03.02 19:21:21.207 [INFO] reader.FileReader: File Ej36.txt is opened.
+2020.03.02 19:21:21.207 [DEBUG] reader.FileReader: Retornando FileFragment : FileFragment(filename=Ej36.txt, text=Under no circumstances must medicines be left within reach of children. , isEndOfFile=true)
+2020.03.02 19:21:21.207 [INFO] parser.Parser: Sending request to UDPipe
+2020.03.02 19:21:21.391 [DEBUG] parser.Parser: 200

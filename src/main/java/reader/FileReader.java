@@ -14,6 +14,7 @@ public class FileReader implements Reader {
     public FileReader(File file) throws FileNotFoundException {
         this.file = file;
         this.fileScanner = new Scanner(file);
+        log.info("File " + file.getName() + " is opened.");
     }
 
     public boolean hasMoreContent() {

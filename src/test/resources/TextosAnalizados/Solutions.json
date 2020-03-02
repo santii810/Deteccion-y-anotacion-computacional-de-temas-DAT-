@@ -1,138 +1,218 @@
 {
-  "example31": [
-    {
-      "file": "Ej31.txt",
-      "text": "Your Mum, does she know you're here?",
-      "pivot": "know",
-      "theme": "Your Mum, does she"
-    }
-  ],
-  "example1": [
-    {
-      "file": "Ej1.txt",
-      "text": "City councilors scored a victory over the mayor last week.",
-      "pivot": "scored",
-      "theme": "City councilors"
-    }
-  ],
-  "example2": [
-    {
-      "file": "Ej2.txt",
-      "text": "It is a false belief.",
-      "theme": "It",
-      "pivot": "is"
-    }
-  ],
-  "example3": [
-    {
-      "file": "Ej3.txt",
-      "text": "The vote may come back to haunt them.",
-      "theme": "The vote may",
-      "pivot": "come"
-    }
-  ],
-  "example4": [
-    {
-      "file": "Ej4.txt",
-      "text": "Some people won’t like it.",
-      "pivot": "like",
-      "theme": "Some people won’t"
-    }
-  ],
-  "example5": [
-    {
-      "file": "Ej5.txt",
-      "text": "Peter’s story, which contains exclusively subjective ideas, I will not dignify with a response.",
-      "pivot": "dignify",
-      "theme": "Peter’s story, which contains exclusively subjective ideas, I will not"
-    }
-  ],
-  "example6": [
-    {
-      "file": "Ej6.txt",
-      "text": "I said that language is a biological object.",
-      "pivot": "said",
-      "theme": "I"
-    }
-  ],
-  "example7": [
-    {
-      "file": "Ej7.txt",
-      "text": "I said that language has meaning.",
-      "pivot": "said",
-      "theme": "I"
-    }
-  ],
-  "example8": [
-    {
-      "file": "Ej8.txt",
-      "text": "What the duke gave to my aunt was that teapot.",
-      "theme": "What the duke gave to my aunt",
-      "pivot": "was"
-    }
-  ],
-  "example9": [
-    {
-      "file": "Ej9.txt",
-      "text": "There is going to be a fine collection of Celtic crosses there.",
-      "theme": "There is going to",
-      "pivot": "be"
-    }
-  ],
-  "example10": [
-    {
-      "file": "Ej10.txt",
-      "text": "She is going to sign opera.",
-      "theme": "She is going to",
-      "pivot": "sign"
-    }
-  ],
-  "example11": [
-    {
-      "file": "Ej11.txt",
-      "text": "When I beat it, I could see hundreds of new Pokémon",
-      "theme": "When I beat it, I could",
-      "pivot": "see"
-    }
-  ],
-  "example12": [
-    {
-      "file": "Ej12.txt",
-      "text": "As regards the Pope John Paul himself, he is known to be keen on sport.",
-      "theme": "As regards the Pope John Paul himself, he is",
-      "pivot": "known"
-    }
-  ],
-  "example13": [
-    {
-      "file": "Ej13.txt",
-      "text": "John is known to be playing football.",
-      "theme": "John is",
-      "pivot": "known"
-    }
-  ],
-  "example14": [
-    {
-      "file": "Ej14.txt",
-      "text": "“What deters them is the likelihood of being caught,” he said.",
-      "theme": "“What deters them is the likelihood of being caught,” he",
-      "pivot": "said"
-    }
-  ],
-  "example15": [
-    {
-      "file": "Ej15.txt",
-      "text": "I said that language is a biological object.",
-      "theme": "I",
-      "pivot": "said"
-    }
-  ],
-  "exampleN": [
-    {
-      "file": "EjN.txt",
-      "text": "There is going to be a fine collection of Celtic crosses there.",
-      "pivot": "be",
-      "theme": "There is going to"
-    }
-  ]
+  "example31": {
+    "file": "Ej31.txt",
+    "text": "Your Mum, does she know you're here?",
+    "pivot": "know",
+    "theme": "Your Mum, does she"
+  },
+  "example1": {
+    "file": "Ej1.txt",
+    "text": "City councilors scored a victory over the mayor last week.",
+    "pivot": "scored",
+    "theme": "City councilors"
+  },
+  "example2": {
+    "file": "Ej2.txt",
+    "text": "It is a false belief.",
+    "theme": "It",
+    "pivot": "is"
+  },
+  "example3": {
+    "file": "Ej3.txt",
+    "text": "The vote may come back to haunt them.",
+    "theme": "The vote may",
+    "pivot": "come"
+  },
+  "example4": {
+    "file": "Ej4.txt",
+    "text": "Some people won’t like it.",
+    "pivot": "like",
+    "theme": "Some people won’t"
+  },
+  "example5": {
+    "file": "Ej5.txt",
+    "text": "Peter’s story, which contains exclusively subjective ideas, I will not dignify with a response.",
+    "pivot": "dignify",
+    "theme": "Peter’s story, which contains exclusively subjective ideas, I will not"
+  },
+  "example6": {
+    "file": "Ej6.txt",
+    "text": "I said that language is a biological object.",
+    "pivot": "said",
+    "theme": "I"
+  },
+  "example7": {
+    "file": "Ej7.txt",
+    "text": "I said that language has meaning.",
+    "pivot": "said",
+    "theme": "I"
+  },
+  "example8": {
+    "file": "Ej8.txt",
+    "text": "What the duke gave to my aunt was that teapot.",
+    "theme": "What the duke gave to my aunt",
+    "pivot": "was"
+  },
+  "example9": {
+    "file": "Ej9.txt",
+    "text": "There is going to be a fine collection of Celtic crosses there.",
+    "theme": "There is going to",
+    "pivot": "be"
+  },
+  "example10": {
+    "file": "Ej10.txt",
+    "text": "She is going to sign opera.",
+    "theme": "She is going to",
+    "pivot": "sign"
+  },
+  "example11": {
+    "file": "Ej11.txt",
+    "text": "When I beat it, I could see hundreds of new Pokémon",
+    "theme": "When I beat it, I could",
+    "pivot": "see"
+  },
+  "example12": {
+    "file": "Ej12.txt",
+    "text": "As regards the Pope John Paul himself, he is known to be keen on sport.",
+    "theme": "As regards the Pope John Paul himself, he is",
+    "pivot": "known"
+  },
+  "example13": {
+    "file": "Ej13.txt",
+    "text": "John is known to be playing football.",
+    "theme": "John is",
+    "pivot": "known"
+  },
+  "example14": {
+    "file": "Ej14.txt",
+    "text": "“What deters them is the likelihood of being caught,” he said.",
+    "theme": "“What deters them is the likelihood of being caught,” he",
+    "pivot": "said"
+  },
+  "example15": {
+    "file": "Ej15.txt",
+    "text": "I said that language is a biological object.",
+    "theme": "I",
+    "pivot": "said"
+  },
+  "example16": {
+    "file": "Ej16.txt",
+    "text": "Children, the story is about to continue.",
+    "pivot": "continue",
+    "theme": "Children, the story is about to"
+  },
+  "example17": {
+    "file": "Ej17.txt",
+    "text": "Ladies and gentlemen, last time I was talking about the notion of choice.",
+    "pivot": "talking",
+    "theme": "Ladies and gentlemen, last time I was"
+  },
+  "example18": {
+    "file": "Ej18.txt",
+    "text": "So some of the comments I’ve scrubbed out.",
+    "pivot": "scrubbed",
+    "theme": "So some of the comments I’ve"
+  },
+  "example19": {
+    "file": "Ej19.txt",
+    "text": "On the other hand, in my view, the results do suggest a clear preference for continuing some kind of bilingual program.",
+    "pivot": "suggest",
+    "theme": "On the other hand, in my view, the results do"
+  },
+  "example20": {
+    "file": "Ej20.txt",
+    "text": "Well guess I‘ll go and put my washing on the line.",
+    "pivot": "guess",
+    "theme": "Well"
+  },
+  "example21": {
+    "file": "Ej21.txt",
+    "text": "Who wants a glass of white wine?",
+    "pivot": "wants",
+    "theme": "Who"
+  },
+  "example22": {
+    "file": "Ej22.txt",
+    "text": "Where did you get that from?",
+    "pivot": "get",
+    "theme": "Where did you"
+  },
+  "example23": {
+    "file": "Ej23.txt",
+    "text": "Where is John?",
+    "pivot": "is",
+    "theme": "Where"
+  },
+  "example24": {
+    "file": "Ej24.txt",
+    "text": "Where is John living?",
+    "pivot": "living",
+    "theme": "Where is John"
+  },
+  "example25": {
+    "file": "Ej25.txt",
+    "text": "How many hours was John working?",
+    "pivot": "working",
+    "theme": "How many hours was John"
+  },
+  "example26": {
+    "file": "Ej26.txt",
+    "text": "After the incident where did you go?",
+    "pivot": "go",
+    "theme": "After the incident where did you"
+  },
+  "example27": {
+    "file": "Ej27.txt",
+    "text": "After that incident where did you go?",
+    "pivot": "go",
+    "theme": "After that incident where did you"
+  },
+  "example28": {
+    "file": "Ej28.txt",
+    "text": "After all, except for music, what did they have in common?",
+    "pivot": "have",
+    "theme": "After all, except for music, what did they"
+  },
+  "example29": {
+    "file": "Ej29.txt",
+    "text": "Is John a doctor?",
+    "pivot": "Is",
+    "theme": "Is"
+  },
+  "example31": {
+    "file": "Ej31.txt",
+    "text": "Your Mum, does she know you're here?",
+    "pivot": "know",
+    "theme": "Your Mum, does she"
+  },
+  "example33": {
+    "file": "Ej33.txt",
+    "text": "Turn it down.",
+    "pivot": "Turn",
+    "theme": "Turn"
+  },
+  "example34": {
+    "file": "Ej34.txt",
+    "text": "Let's cook at the Ivy.",
+    "pivot": "cook",
+    "theme": "Let's"
+  },
+  "example35": {
+    "file": "Ej35.txt",
+    "text": "Don't let's quarrel about it.",
+    "pivot": "quarrel",
+    "theme": "Don't let's"
+  },
+  "example36": {
+    "file": "Ej36.txt",
+    "text": "Under no circumstances must medicines be left within reach of children.",
+    "pivot": "left",
+    "theme": "Under no circumstances must medicines be"
+  },
+  "exampleN": {
+    "file": "EjN.txt",
+    "text": "There is going to be a fine collection of Celtic crosses there.",
+    "pivot": "be",
+    "theme": "There is going to"
+  }
 }
