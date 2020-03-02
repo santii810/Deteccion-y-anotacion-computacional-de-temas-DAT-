@@ -4,6 +4,7 @@ import mapper.ObjectsMapped;
 import model.Sentence;
 import model.Word;
 import model.xml.SentenceXml;
+import model.xml.State;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,15 +18,19 @@ public class Processor {
             String text = sentence.getText().replace("\"", "");
             //FIXME esta comprobación no debería estár en un punto tan avanzado del análisis
             if (!text.isEmpty()) {
-
                 SentenceXml xml = new SentenceXml();
                 toret.add(xml);
                 xml.setText(text);
                 int pivotId = findMainPivot(sentence);
-                xml.setPivot(sentence.getWords().get(pivotId));
-                if (pivotId == 1) xml.getTheme().add(xml.getPivot());
-                xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
-                        .map(Map.Entry::getValue).collect(Collectors.toList()));
+                if (pivotId == -1) {
+                    xml.setState(State.KO);
+                } else {
+                    xml.setState(State.OK);
+                    xml.setPivot(sentence.getWords().get(pivotId));
+                    if (pivotId == 1) xml.getTheme().add(xml.getPivot());
+                    xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
+                            .map(Map.Entry::getValue).collect(Collectors.toList()));
+                }
             }
         }
 
@@ -67,7 +72,7 @@ public class Processor {
     private int checkThirdGeneralCase(Sentence sentence) {
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
-            if (word.getDepRel().equals("root") && word.getXPosTag().startsWith("V")) {
+            if (word.getDepRel().equals("root")) {
                 //TODO revisar
                 return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().get().getId();
             }

@@ -18,7 +18,12 @@ public class SentenceXml {
     @XmlAttribute(name = "text")
     private String text;
 
+    @XmlAttribute(name = "state")
+    private State state;
+
     @XmlElementWrapper(name = "theme")
     @XmlElement(name = "word")
     private List<Word> theme;
+
+
 }

@@ -30,7 +30,7 @@ class ExecutionTest extends Specification {
 
         String outputFile = solution.file.split("\\.")[0] + ".xml"
         GPathResult xml = new XmlSlurper().parse(new File('.\\out\\Parsedfiles\\' + outputFile))
-        log.debug("Check correct parsing of ${solution.file}")
+
 
         then:
         xml.sentences.sentence.@text == solution.text
