@@ -1,5 +1,6 @@
 package processor;
 
+import lombok.extern.slf4j.Slf4j;
 import mapper.ObjectsMapped;
 import model.Sentence;
 import model.Word;
@@ -9,6 +10,7 @@ import model.xml.State;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class Processor {
 
 
@@ -23,18 +25,26 @@ public class Processor {
     private SentenceXml processSentence(Sentence sentence) {
         SentenceXml xml = new SentenceXml();
         xml.setText(sentence.getText());
-        int pivotId = findMainPivot(sentence);
-        if (pivotId == -1) {
-            xml.setState(State.KO);
-        } else {
-            xml.setState(State.OK);
-            xml.setPivot(sentence.getWords().get(pivotId));
-            if (pivotId == 1) xml.setTheme(Collections.singletonList(xml.getPivot()));
-            xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
-                    .map(Map.Entry::getValue).collect(Collectors.toList()));
-            xml.setTail(sentence.getWords().entrySet().stream().skip(pivotId)
-                    .map(Map.Entry::getValue).collect(Collectors.toList()));
+        try {
 
+            int pivotId = findMainPivot(sentence);
+            if (pivotId == -1) {
+                xml.setState(State.KO);
+            } else {
+                xml.setState(State.OK);
+                xml.setPivot(sentence.getWords().get(pivotId));
+                if (pivotId == 1) xml.setTheme(Collections.singletonList(xml.getPivot()));
+                xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
+                        .map(Map.Entry::getValue).collect(Collectors.toList()));
+                xml.setTail(sentence.getWords().entrySet().stream().skip(pivotId)
+                        .map(Map.Entry::getValue).collect(Collectors.toList()));
+
+            }
+            return xml;
+        } catch (Exception e) {
+            log.error("Error procesando sentencia: " + sentence.toString());
+            log.error(e.getMessage());
+            xml.setState(State.KO);
         }
         return xml;
     }

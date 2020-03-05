@@ -9,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SentenceXml {
 
