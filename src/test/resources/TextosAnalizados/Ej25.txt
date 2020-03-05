@@ -1,1 +1,1 @@
- >> How many hours was John working?
+How many hours was John working?

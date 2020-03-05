@@ -1,1 +1,1 @@
- >> Is John a doctor?
+Is John a doctor?

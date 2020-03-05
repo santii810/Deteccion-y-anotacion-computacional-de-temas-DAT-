@@ -27,12 +27,14 @@ public class Processor {
         if (pivotId == -1) {
             xml.setState(State.KO);
         } else {
-            System.out.println(pivotId);
             xml.setState(State.OK);
             xml.setPivot(sentence.getWords().get(pivotId));
-            if (pivotId == 1) xml.getTheme().add(xml.getPivot());
+            if (pivotId == 1) xml.setTheme(Collections.singletonList(xml.getPivot()));
             xml.setTheme(sentence.getWords().entrySet().stream().limit(pivotId - 1)
                     .map(Map.Entry::getValue).collect(Collectors.toList()));
+            xml.setTail(sentence.getWords().entrySet().stream().skip(pivotId)
+                    .map(Map.Entry::getValue).collect(Collectors.toList()));
+
         }
         return xml;
     }
@@ -51,11 +53,10 @@ public class Processor {
     }
 
     private int checkLets(Sentence sentence) {
-
-        int id = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("let")).findFirst().map(Word::getId).orElse(-1);
-        if (id != -1 && sentence.getWords().get(id + 1).getLemma().equals("'s'")
-                && sentence.getWords().get(id + 2).getDepRel().equals("xcomp") && sentence.getWords().get(id + 2).getXPosTag().startsWith("V"))
-            return id + 3;
+        int letPosition = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("let")).findFirst().map(Word::getId).orElse(-1);
+        if (letPosition != -1 && sentence.getWords().get(letPosition + 1).getLemma().equals("'s")
+                && sentence.getWords().get(letPosition + 2).getDepRel().equals("xcomp") && sentence.getWords().get(letPosition + 2).getXPosTag().startsWith("V"))
+            return letPosition + 2;
         return -1;
     }
 
@@ -93,7 +94,7 @@ public class Processor {
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
             if (word.getDepRel().equals("root")) {
-                return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().get().getId();
+                return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().map(Word::getId).orElse(-1);
             }
         }
         return -1;

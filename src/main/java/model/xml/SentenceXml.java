@@ -12,9 +12,6 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SentenceXml {
 
-    @XmlElement(name = "pivot")
-    private Word pivot;
-
     @XmlAttribute(name = "text")
     private String text;
 
@@ -24,6 +21,13 @@ public class SentenceXml {
     @XmlElementWrapper(name = "theme")
     @XmlElement(name = "word")
     private List<Word> theme;
+
+    @XmlElement(name = "pivot")
+    private Word pivot;
+
+    @XmlElementWrapper(name = "tail")
+    @XmlElement(name = "word")
+    private List<Word> tail;
 
 
 }

@@ -128,7 +128,7 @@
   "example21": {
     "file": "Ej21.txt",
     "text": "Who wants a glass of white wine?",
-    "pivot": "wants",
+    "pivot": "want",
     "theme": "Who"
   },
   "example22": {

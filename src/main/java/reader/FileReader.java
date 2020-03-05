@@ -23,7 +23,7 @@ public class FileReader implements Reader {
 
     public FileFragment read() {
         StringBuilder builder = new StringBuilder();
-        while (hasMoreContent() && builder.toString().length() < (MAX_SIZE - 500)) {
+        while (hasMoreContent() && builder.toString().length() < (MAX_SIZE - 1000)) {
             builder.append(fileScanner.nextLine());
             builder.append(" ");
         }

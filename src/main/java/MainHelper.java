@@ -1,3 +1,4 @@
+import lombok.extern.slf4j.Slf4j;
 import mapper.ObjectMapper;
 import mapper.ObjectsMapped;
 import parser.Parser;
@@ -6,11 +7,13 @@ import processor.ProcessedOutput;
 import processor.Processor;
 import reader.FileFragment;
 import reader.Reader;
+import utils.Utils;
 import writer.Marshaller;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
+@Slf4j
 public class MainHelper {
 
     private static final String FILE_OUTPUT_EXT = ".xml";
@@ -34,11 +37,19 @@ public class MainHelper {
             FileFragment fileFragment = reader.read();
             if (!fileFragment.isNullOrEmpty()) {
                 ParserResponse parserResponse = parser.send(fileFragment.getText());
-                ObjectsMapped objects = new ObjectsMapped(objectMapper.mapResponse(parserResponse));
-                output.getSentences().addAll(processor.process(objects));
-                if (fileFragment.isEndOfFile()) {
-                    Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
-                    output = new ProcessedOutput();
+                if (parserResponse.getHttpStatus() == 200) {
+                    ObjectsMapped objects = new ObjectsMapped(objectMapper.mapResponse(parserResponse));
+                    output.getSentences().addAll(processor.process(objects));
+                    if (fileFragment.isEndOfFile()) {
+                        output.setRef(Utils.extractRefFromFilename(fileFragment.getFilename()));
+                        Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
+                        output = new ProcessedOutput();
+                        log.info("File + " + fileFragment.getFilename() + " time: " + Utils.getElapsedTime(Main.newFileTime, System.currentTimeMillis()));
+                        Main.newFileTime = System.currentTimeMillis();
+                    }
+                } else {
+                    log.error("Parser response status code : " + parserResponse.getHttpStatus());
+                    log.error(parserResponse.getBody());
                 }
             }
         }

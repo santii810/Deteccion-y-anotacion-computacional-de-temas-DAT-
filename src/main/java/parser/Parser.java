@@ -29,7 +29,7 @@ public class Parser {
     public ParserResponse send(String text) throws IOException {
         String completeEndpoint = REST_ENDPOINT + "?" + getQueryParams() + "&data=" + URLEncoder.encode(text, "UTF-8");
 
-        log.info("Sending request to UDPipe");
+        log.trace("Sending request to UDPipe");
         log.trace("Complete endpoint: " + completeEndpoint);
 
 
