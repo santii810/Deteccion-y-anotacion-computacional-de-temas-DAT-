@@ -1,5 +1,6 @@
 package parser;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,23 +12,14 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.net.URLEncoder;
 
+@NoArgsConstructor
 @Slf4j
 public class Parser {
 
-    private static final String REST_ENDPOINT = "http://lindat.mff.cuni.cz/services/udpipe/api/process";
-    private static final String MODEL_EN = "english-ewt-ud-2.4-190531";
-
-    public Parser() {
-
-    }
-
-    private String getQueryParams() {
-        return "tokenizer&parser&tagger&model=" + MODEL_EN;
-    }
-
+    private static final String URL = "http://lindat.mff.cuni.cz/services/udpipe/api/process?tokenizer&parser&tagger&model=english-ewt-ud-2.4-190531&data=";
 
     public ParserResponse send(String text) throws IOException {
-        String completeEndpoint = REST_ENDPOINT + "?" + getQueryParams() + "&data=" + URLEncoder.encode(text, "UTF-8");
+        String completeEndpoint = URL + URLEncoder.encode(text, "UTF-8");
 
         log.trace("Sending request to UDPipe");
         log.trace("Complete endpoint: " + completeEndpoint);
