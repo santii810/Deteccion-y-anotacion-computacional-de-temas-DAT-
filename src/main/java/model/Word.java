@@ -15,7 +15,7 @@ public class Word {
     private String form;
 
     @XmlAttribute
-    private int id;
+    private int ref;
     @XmlAttribute
     private String xPosTag;
 

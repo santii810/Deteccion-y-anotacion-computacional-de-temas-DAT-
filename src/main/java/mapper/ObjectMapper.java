@@ -25,7 +25,7 @@ public class ObjectMapper {
             if (line.startsWith("# text")) sentence.setText(line.substring(9));
             if (!line.startsWith("#")) {
                 Word word = processToWords(line);
-                sentence.getWords().put(word.getId(), word);
+                sentence.getWords().put(word.getRef(), word);
             }
         }
         return sentence;
@@ -34,7 +34,7 @@ public class ObjectMapper {
     private Word processToWords(String line) {
         Word word = new Word();
         String[] attibs = line.split("\t");
-        word.setId(Integer.parseInt(attibs[0]));
+        word.setRef(Integer.parseInt(attibs[0]));
         word.setForm(attibs[1]);
         word.setLemma(attibs[2]);
         word.setXPosTag(attibs[4]);

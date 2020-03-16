@@ -63,7 +63,7 @@ public class Processor {
     }
 
     private int checkLets(Sentence sentence) {
-        int letPosition = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("let")).findFirst().map(Word::getId).orElse(-1);
+        int letPosition = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("let")).findFirst().map(Word::getRef).orElse(-1);
         if (letPosition != -1 && sentence.getWords().get(letPosition + 1).getLemma().equals("'s")
                 && sentence.getWords().get(letPosition + 2).getDepRel().equals("xcomp") && sentence.getWords().get(letPosition + 2).getXPosTag().startsWith("V"))
             return letPosition + 2;
@@ -71,7 +71,7 @@ public class Processor {
     }
 
     private int checkBeAboutTo(Sentence sentence) {
-        int id = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("be")).findFirst().map(Word::getId).orElse(-1);
+        int id = sentence.getWords().values().stream().filter(i -> i.getLemma().equals("be")).findFirst().map(Word::getRef).orElse(-1);
         if (id != -1 && sentence.getWords().get(id + 1).getLemma().equals("about") && sentence.getWords().get(id + 2).getLemma().equals("to"))
             return id + 3;
         return -1;
@@ -104,7 +104,7 @@ public class Processor {
         for (int wordId : sentence.getWords().keySet()) {
             Word word = sentence.getWords().get(wordId);
             if (word.getDepRel().equals("root")) {
-                return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().map(Word::getId).orElse(-1);
+                return sentence.getWords().values().stream().filter(i -> i.getDepRel().equals("cop")).findFirst().map(Word::getRef).orElse(-1);
             }
         }
         return -1;
@@ -117,9 +117,9 @@ public class Processor {
     private int checkIsGoingTo(Sentence sentence, Word word) {
         if (!word.getForm().equals("going"))
             return -1;
-        int number = word.getId();
-        if (sentence.getWords().get(word.getId() + 1).getXPosTag().equals("TO")
-                && sentence.getWords().get(word.getId() + 2).getXPosTag().startsWith("V"))
+        int number = word.getRef();
+        if (sentence.getWords().get(word.getRef() + 1).getXPosTag().equals("TO")
+                && sentence.getWords().get(word.getRef() + 2).getXPosTag().startsWith("V"))
             return number + 2;
         return -1;
     }

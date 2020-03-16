@@ -15,7 +15,7 @@ import java.util.List;
 @XmlRootElement(name = "output")
 public class ProcessedOutput {
     @XmlElementWrapper(name = "sentences")
-    @XmlElement(name = "text")
+    @XmlElement(name = "sentence")
     List<SentenceXml> sentences = new ArrayList<>();
     @XmlAttribute(name = "ref")
     String ref;

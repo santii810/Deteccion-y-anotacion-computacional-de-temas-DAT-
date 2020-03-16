@@ -13,6 +13,7 @@ import java.util.Map;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Sentence {
     private String text;
+    private int ref;
     private Map<Integer, Word> words = new HashMap();
 
 }

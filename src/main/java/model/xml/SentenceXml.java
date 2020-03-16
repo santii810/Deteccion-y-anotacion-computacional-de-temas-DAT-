@@ -19,6 +19,9 @@ public class SentenceXml {
     @XmlAttribute(name = "state")
     private State state;
 
+    @XmlAttribute(name = "ref")
+    private int ref;
+
     @XmlElementWrapper(name = "theme")
     @XmlElement(name = "word")
     private List<Word> theme;
