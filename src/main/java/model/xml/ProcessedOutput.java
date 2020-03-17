@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "output")
+@XmlRootElement(name = "text")
 public class ProcessedOutput {
     @XmlElementWrapper(name = "sentences")
     @XmlElement(name = "sentence")

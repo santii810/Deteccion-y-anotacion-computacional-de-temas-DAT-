@@ -73,7 +73,7 @@ class FindSecondaryPivotsTest extends Specification {
         pivots.size() == 4
         pivots.contains("is")
         pivots.contains("deters")
-        pivots.contains("caught.txt")
+        pivots.contains("caught")
     }
 
     def "Check	example15"() {
@@ -89,7 +89,7 @@ class FindSecondaryPivotsTest extends Specification {
         when:
         List<String> pivots = checkProcess("ej20.txt")
         then:
-        pivots.size() == 4
+        pivots.size() == 3
         pivots.contains("guess")
         pivots.contains("go")
         pivots.contains("put")
@@ -101,8 +101,8 @@ class FindSecondaryPivotsTest extends Specification {
         List<String> pivots = checkProcess("ej31.txt")
         then:
         pivots.size() == 2
-        pivots.contains("'re'")
-        pivots.contains("know'")
+        pivots.contains("'re")
+        pivots.contains("know")
     }
 
     static List<String> checkProcess(String filename) {

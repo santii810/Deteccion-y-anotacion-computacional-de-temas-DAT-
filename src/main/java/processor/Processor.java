@@ -105,6 +105,14 @@ public class Processor {
                 .filter(i -> i.getDepRel().startsWith("advcl") && i.getXPosTag().startsWith("V")
                         && i.getId() != mainPivotId).findFirst().orElse(null));
 
+        words.add(sentence.getWords().values().stream()
+                .filter(i -> i.getDepRel().equals("conj") && i.getXPosTag().startsWith("V")
+                        && i.getId() != mainPivotId).findFirst().orElse(null));
+
+        words.add(sentence.getWords().values().stream()
+                .filter(i -> i.getDepRel().startsWith("xcomp") && i.getXPosTag().startsWith("V")
+                        && i.getId() != mainPivotId).findFirst().orElse(null));
+
 
         return words.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
