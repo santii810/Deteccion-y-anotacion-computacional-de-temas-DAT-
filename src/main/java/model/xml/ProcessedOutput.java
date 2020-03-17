@@ -1,4 +1,4 @@
-package processor;
+package model.xml;
 
 import lombok.*;
 import model.xml.SentenceXml;

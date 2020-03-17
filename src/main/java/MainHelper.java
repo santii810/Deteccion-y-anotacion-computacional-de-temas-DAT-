@@ -1,9 +1,9 @@
 import lombok.extern.slf4j.Slf4j;
 import mapper.ObjectMapper;
 import mapper.ObjectsMapped;
+import model.xml.*;
 import parser.Parser;
 import parser.ParserResponse;
-import processor.ProcessedOutput;
 import processor.Processor;
 import reader.FileFragment;
 import reader.Reader;
@@ -39,7 +39,7 @@ public class MainHelper {
                 ParserResponse parserResponse = parser.send(fileFragment.getText());
                 if (parserResponse.getHttpStatus() == 200) {
                     ObjectsMapped objects = new ObjectsMapped(objectMapper.mapResponse(parserResponse));
-                    output.getSentences().addAll(processor.process(objects));
+                    processor.process(objects, output);
                     if (fileFragment.isEndOfFile()) {
                         output.setRef(Utils.extractRefFromFilename(fileFragment.getFilename()));
                         Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
@@ -48,6 +48,10 @@ public class MainHelper {
                         Main.newFileTime = System.currentTimeMillis();
                     }
                 } else {
+                    SentenceXml sentenceXml = new SentenceXml();
+                    sentenceXml.setText(fileFragment.getText());
+                    sentenceXml.setState(State.KO);
+                    sentenceXml.setError("Sentence too large");
                     log.error("Parser response status code : " + parserResponse.getHttpStatus());
                     log.error(parserResponse.getBody());
                 }

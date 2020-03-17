@@ -1,4 +1,4 @@
-package model;
+package model.xml;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ public class Word {
     private String form;
 
     @XmlAttribute
-    private int ref;
+    private int id;
     @XmlAttribute
     private String xPosTag;
 

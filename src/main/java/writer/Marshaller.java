@@ -1,6 +1,6 @@
 package writer;
 
-import processor.ProcessedOutput;
+import model.xml.ProcessedOutput;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

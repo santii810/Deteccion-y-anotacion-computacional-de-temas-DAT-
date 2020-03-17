@@ -9,7 +9,7 @@ import spock.lang.Specification
 
 
 @Slf4j
-class ExecutionTest extends Specification {
+class FindMainPivotsTest extends Specification {
     static final String RESOURCES_URL = "src/test/resources/TextosAnalizados/"
     static def jsonSolutions = [:]
 
@@ -200,7 +200,7 @@ class ExecutionTest extends Specification {
 
         if ((xml.sentences.sentence.@state as String) == "OK") {
             assert xml.sentences.sentence.@text == solution.text
-            assert xml.sentences.sentence.pivot == solution.pivot
+            assert xml.sentences.sentence.result[0].pivot == solution.pivot
         } else {
             assert (xml.sentences.sentence.@state as String) == "KO"
         }

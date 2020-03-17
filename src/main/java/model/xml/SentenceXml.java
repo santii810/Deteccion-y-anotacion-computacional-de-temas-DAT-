@@ -1,9 +1,9 @@
 package model.xml;
 
 import lombok.*;
-import model.Word;
 
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -13,25 +13,19 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SentenceXml {
 
-    @XmlAttribute(name = "text")
-    private String text;
+    @XmlAttribute(name = "ref")
+    private int ref;
 
     @XmlAttribute(name = "state")
     private State state;
 
-    @XmlAttribute(name = "ref")
-    private int ref;
+    @XmlElement(name = "result")
+    private List<Result> result = new ArrayList<>();
 
-    @XmlElementWrapper(name = "theme")
-    @XmlElement(name = "word")
-    private List<Word> theme;
-
-    @XmlElement(name = "pivot")
-    private Word pivot;
-
-    @XmlElementWrapper(name = "tail")
-    @XmlElement(name = "word")
-    private List<Word> tail;
+    @XmlAttribute(name = "error")
+    private String error;
+    @XmlAttribute(name = "text")
+    private String text;
 
 
 }

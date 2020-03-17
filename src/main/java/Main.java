@@ -20,7 +20,8 @@ public class Main {
         newFileTime = System.currentTimeMillis();
         try {
 //            String filename = "src/test/resources/AmE06_files";
-            String filename = "src/test/resources/AmE06_files/AmE06_F/ame06_f19.txt";
+//            String filename = "src/test/resources/AmE06_files/AmE06_F/ame06_f19.txt";
+            String filename = "src/test/resources/AmE06_files/AmE06_A/ame06_a01.txt";
             log.info("Iniciando análisis de fichero: " + filename + "\n\n");
 
             File file = new File(filename);
