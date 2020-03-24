@@ -23,7 +23,7 @@ public class Word {
     private String depRel;
     @XmlTransient
     private String lemma;
-    @XmlTransient
+    @XmlAttribute
     private int head;
     @XmlTransient
     private String deps;

@@ -11,7 +11,7 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Result {
+public class Unit {
 
     @XmlAttribute(name = "ref")
     private String ref;

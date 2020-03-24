@@ -19,13 +19,19 @@ public class SentenceXml {
     @XmlAttribute(name = "state")
     private State state;
 
-    @XmlElement(name = "result")
-    private List<Result> result = new ArrayList<>();
 
     @XmlAttribute(name = "error")
     private String error;
     @XmlAttribute(name = "text")
     private String text;
 
+
+    @XmlElementWrapper(name = "units")
+    @XmlElement(name = "unit")
+    private List<Unit> unit = new ArrayList<>();
+
+    @XmlElementWrapper(name = "words")
+    @XmlElement(name = "word")
+    private List<Word> words = new ArrayList<>();
 
 }

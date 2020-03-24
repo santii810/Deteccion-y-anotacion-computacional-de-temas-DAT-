@@ -21,6 +21,7 @@ class FindSecondaryPivotsTest extends Specification {
         then:
         pivots.size() == 2
         pivots.contains("contains")
+
     }
 
 

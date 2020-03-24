@@ -25,6 +25,7 @@ public class Processor {
     private SentenceXml processSentence(Sentence sentence) {
         SentenceXml xml = new SentenceXml();
         xml.setText(sentence.getText());
+        xml.setWords(new ArrayList<>(sentence.getWords().values()));
         try {
             //Main pivots
             int mainPivotId = findMainPivot(sentence);
@@ -34,17 +35,18 @@ public class Processor {
             } else {
                 xml.setState(State.OK);
                 if (mainPivotId == 1)
-                    xml.getResult().add(new Result("1", sentence.getWords().get(mainPivotId),
+                    xml.getUnit().add(new Unit("1", sentence.getWords().get(mainPivotId),
                             Collections.singletonList(sentence.getWords().get(mainPivotId))));
                 else
-                    xml.getResult().add(new Result("1",
+                    xml.getUnit().add(new Unit("1",
                             sentence.getWords().get(mainPivotId),
                             sentence.getWords().entrySet().stream().limit(mainPivotId - 1)
                                     .map(Map.Entry::getValue).collect(Collectors.toList())));
             }
             //Secondary pivots
             List<Word> secondaryPivots = findSecondaryPivots(sentence, mainPivotId);
-            addSecondaryPivots(secondaryPivots, sentence, xml);
+            addSecondaryUnits(secondaryPivots, sentence, xml);
+            addExceptionalUnit(sentence, mainPivotId, xml);
 
 
             return xml;
@@ -56,10 +58,30 @@ public class Processor {
         return xml;
     }
 
-    private void addSecondaryPivots(List<Word> secondaryPivots, Sentence sentence, SentenceXml xml) {
+    private void addExceptionalUnit(Sentence sentence, int mainPivotId, SentenceXml xml) {
+        List<Word> pivots = sentence.getWords().values().stream()
+                .filter(i -> i.getDepRel().equals("cop") && i.getId() != mainPivotId).collect(Collectors.toList());
+
+        pivots.forEach(pivot -> {
+
+            sentence.getWords().values().stream()
+                    //Palabras anteriores al pivot con mismo HEAD que el pivot
+                    .filter(i -> i.getId() < pivot.getId() && i.getHead() == pivot.getHead())
+                    //Comprueba que todas las palabras tengan el mismo head que la siguiente
+                    .filter(i -> i.getHead() == sentence.getWords().get(i.getId() + 1).getHead())
+                    .collect(Collectors.toList());
+        });
+
+
+    }
+
+    /**
+     * Para cada uno de los pivots enviados busca su theme y lo añade a la oración
+     */
+    private void addSecondaryUnits(List<Word> secondaryPivots, Sentence sentence, SentenceXml xml) {
         for (Word pivot : secondaryPivots) {
-            Result result = new Result();
-            result.setRef(Integer.toString(xml.getResult().size() + 1));
+            Unit result = new Unit();
+            result.setRef(Integer.toString(xml.getUnit().size() + 1));
             result.setPivot(pivot);
 
             result.setTheme(sentence.getWords().values().stream()
@@ -68,7 +90,7 @@ public class Processor {
                             .filter(i -> i.getId() < pivot.getId()).collect(Collectors.toList()),
                     pivot.getId()));
 
-            xml.getResult().add(result);
+            xml.getUnit().add(result);
         }
 
     }
@@ -85,9 +107,6 @@ public class Processor {
 
     private List<Word> findSecondaryPivots(Sentence sentence, int mainPivotId) {
         List<Word> words = new ArrayList<>();
-
-        words.add(sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().equals("cop") && i.getId() != mainPivotId).findFirst().orElse(null));
 
         words.add(sentence.getWords().values().stream()
                 .filter(i -> i.getDepRel().startsWith("ccomp") && i.getXPosTag().startsWith("V")
