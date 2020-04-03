@@ -18,12 +18,22 @@ public class Unit {
 
     @XmlElement(name = "pivot")
     private Pivot pivot;
-    @XmlElementWrapper(name = "theme")
-    @XmlElement(name = "word")
-    private List<Word> theme;
+    @XmlElement(name = "theme")
+    private Theme theme;
 
 
     public void setPivot(Word word) {
         this.pivot = new Pivot(word);
+    }
+
+    public List<Word> getTheme() {
+        return theme==null? new Theme().getWords(): theme.getWords();
+    }
+
+    public void setTheme(List<Word> words) {
+        if (this.theme == null)
+            theme = new Theme(words);
+        else
+            this.theme.setWords(words);
     }
 }

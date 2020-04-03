@@ -101,12 +101,12 @@ class FindMainPivotsTest extends Specification {
 
     def "Check	example17"() {
         expect:
-        checkProcess("example17")
+        checkKO("example17")
     }
 
     def "Check	example18"() {
         expect:
-        checkProcess("example18")
+        checkKO("example18")
     }
 
     def "Check	example19"() {
@@ -146,8 +146,9 @@ class FindMainPivotsTest extends Specification {
 
     def "Check	example26"() {
         expect:
-        checkProcess("example26")
+        checkKO("example26")
     }
+
 
     def "Check	example27"() {
         expect:
@@ -199,13 +200,24 @@ class FindMainPivotsTest extends Specification {
         String outputFile = solution.file.split("\\.")[0] + ".xml"
         GPathResult xml = new XmlSlurper().parse(new File('.\\out\\Parsedfiles\\' + outputFile))
 
-        if ((xml.sentences.sentence.@state as String) == "OK") {
-            assert xml.sentences.sentence.@text == solution.text
-            assert xml.sentences.sentence.units.unit[0].pivot.word == solution.pivot
-        } else {
-            assert (xml.sentences.sentence.@state as String) == "KO"
-        }
+        assert xml.sentences.sentence.@state as String == "OK"
+        assert xml.sentences.sentence.@text == solution.text
+        assert xml.sentences.sentence.units.unit[0].pivot.word == solution.pivot
 
+
+        true
+    }
+
+   static def checkKO(String example) {
+        HashMap solution = jsonSolutions.get(example)
+        Reader reader = new FileReader(new File(RESOURCES_URL + solution.file))
+        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper())
+        mainHelper.process()
+
+        String outputFile = solution.file.split("\\.")[0] + ".xml"
+        GPathResult xml = new XmlSlurper().parse(new File('.\\out\\Parsedfiles\\' + outputFile))
+
+        assert xml.sentences.sentence.@state as String == "KO"
         true
     }
 
