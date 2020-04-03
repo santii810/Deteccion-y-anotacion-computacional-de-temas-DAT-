@@ -70,7 +70,7 @@ class FindSecondaryThemesTest extends Specification {
         themeSizes.contains(3)
         themeSizes.contains(1)
         themeSizes.contains(2)
-        themeSizes.contains(12)
+        themeSizes.contains(11)
     }
 
     def "Check	example15"() {

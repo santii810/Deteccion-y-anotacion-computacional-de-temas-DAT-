@@ -19,14 +19,27 @@ public class Parser {
     private static final String URL = "http://lindat.mff.cuni.cz/services/udpipe/api/process?tokenizer&parser&tagger&model=english-ewt-ud-2.4-190531&data=";
 
     public ParserResponse send(String text) throws IOException {
-        String completeEndpoint = URL + URLEncoder.encode(text, "UTF-8");
+        String textProcessed = preprocessText(text);
 
+        String completeEndpoint = URL + URLEncoder.encode(textProcessed, "UTF-8");
+        return httpRequest(completeEndpoint);
+    }
+
+    private String preprocessText(String text) {
+        String toret = "";
+        toret = text.replace("\"", "");
+        toret = toret.replace("”", "");
+        toret = toret.replace("“", "");
+        toret = toret.replace("''", "");
+        return toret;
+    }
+
+    private ParserResponse httpRequest(String completeEndpoint) throws IOException {
         log.trace("Sending request to UDPipe");
         log.trace("Complete endpoint: " + completeEndpoint);
 
 
         HttpGet request = new HttpGet(completeEndpoint);
-
 
         ParserResponse responseModel;
         try (CloseableHttpClient httpClient = HttpClients.createDefault();

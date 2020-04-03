@@ -54,42 +54,6 @@ public class Processor {
         return xml;
     }
 
-    private void addExceptionalUnit(Sentence sentence, int mainPivotId, SentenceXml xml) {
-        List<Word> pivots = sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().equals("cop") && i.getId() != mainPivotId).collect(Collectors.toList());
-
-        pivots.forEach(pivot -> {
-
-            sentence.getWords().values().stream()
-                    //Palabras anteriores al pivot con mismo HEAD que el pivot
-                    .filter(i -> i.getId() < pivot.getId() && i.getHead() == pivot.getHead())
-                    //Comprueba que todas las palabras tengan el mismo head que la siguiente
-                    .filter(i -> i.getHead() == sentence.getWords().get(i.getId() + 1).getHead())
-                    .collect(Collectors.toList());
-        });
-
-
-    }
-
-    /**
-     * Para cada uno de los pivots enviados busca su theme y lo añade a la oración
-     */
-    private void addSecondaryUnits(List<Word> secondaryPivots, Sentence sentence, SentenceXml xml) {
-        List<Word> theme = new ArrayList<>();
-        for (Word pivot : secondaryPivots) {
-            Unit result = new Unit();
-            result.setRef(Integer.toString(xml.getUnit().size() + 1));
-            result.setPivot(pivot);
-
-            result.setTheme(findDependencyTree(sentence.getWords().values().stream()
-                            .filter(i -> i.getId() < pivot.getId()).collect(Collectors.toList()),
-                    pivot.getId()));
-
-            xml.getUnit().add(result);
-        }
-
-    }
-
     private List<Word> findDependencyTree(List<Word> words, int id) {
         List<Word> toret = new ArrayList<>();
         List<Word> matches = words.stream().filter(i -> i.getHead() == id).collect(Collectors.toList());
@@ -102,62 +66,27 @@ public class Processor {
 
     private List<Unit> findSecondaryPivots(Sentence sentence, int mainPivotId) {
         List<Unit> units = new ArrayList<>();
-
+//CASO ESPECIAL
         sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().equals("cop") && i.getId() != mainPivotId).findAny()
-                .ifPresent(pivot -> {
-                    Unit unit = new Unit();
-                    unit.setPivot(pivot);
-                    unit.setTheme(sentence.getWords().values().stream()
-                            //Palabras anteriores al pivot con mismo HEAD que el pivot
-                            .filter(i -> i.getId() < pivot.getId() && i.getHead() == pivot.getHead())
-                            //Comprueba que todas las palabras tengan el mismo head que la siguiente
-                            .filter(i -> i.getHead() == sentence.getWords().get(i.getId() + 1).getHead())
-                            .collect(Collectors.toList()));
-                    if (unit.getTheme() == null || unit.getTheme().isEmpty()) {
-                        unit.setTheme(findDependencyTree(sentence.getWords().values().stream()
-                                        .filter(i -> i.getId() < pivot.getId()).collect(Collectors.toList()),
-                                pivot.getId()));
-                    }
-                    units.add(unit);
-                });
-
-
-        sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().startsWith("ccomp") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
-            findThemeOfPivot(sentence, units, pivot);
-        });
-        sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().startsWith("acl") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
-            findThemeOfPivot(sentence, units, pivot);
+                .filter(i -> i.getDepRel().equals("cop") && i.getId() != mainPivotId).forEach(pivot -> {
+            Unit unit = new Unit();
+            unit.setPivot(pivot);
+            unit.setTheme(findDependencyTree(sentence.getWords().values().stream()
+                            .filter(i -> i.getId() < pivot.getId()).collect(Collectors.toList()),
+                    pivot.getHead()));
+            units.add(unit);
         });
 
         sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().startsWith("csubj") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
+                .filter(i -> i.getId() != mainPivotId && i.getXPosTag().startsWith("V")
+                        && (i.getDepRel().startsWith("ccomp")
+                        || i.getDepRel().startsWith("acl")
+                        || i.getDepRel().startsWith("csubj")
+                        || i.getDepRel().startsWith("advcl")
+                        || i.getDepRel().equals("conj")
+                        || i.getDepRel().startsWith("xcomp"))).forEach(pivot -> {
             findThemeOfPivot(sentence, units, pivot);
         });
-
-        sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().startsWith("advcl") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
-            findThemeOfPivot(sentence, units, pivot);
-        });
-
-        sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().equals("conj") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
-            findThemeOfPivot(sentence, units, pivot);
-        });
-
-        sentence.getWords().values().stream()
-                .filter(i -> i.getDepRel().startsWith("xcomp") && i.getXPosTag().startsWith("V")
-                        && i.getId() != mainPivotId).findAny().ifPresent(pivot -> {
-            findThemeOfPivot(sentence, units, pivot);
-        });
-
         return units;
     }
 
