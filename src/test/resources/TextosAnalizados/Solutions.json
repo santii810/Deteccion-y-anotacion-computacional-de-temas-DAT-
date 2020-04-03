@@ -85,7 +85,7 @@
   },
   "example14": {
     "file": "Ej14.txt",
-    "text": "“What deters them is the likelihood of being caught,” he said.",
+    "text": "What deters them is the likelihood of being caught, he said.",
     "theme": "“What deters them is the likelihood of being caught,” he",
     "pivot": "said"
   },

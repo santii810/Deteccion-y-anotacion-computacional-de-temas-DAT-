@@ -28,39 +28,7 @@ class ReaderTest extends Specification {
         }
 
         then:
-        //TODO consultar si es necesario quitar TODOS los guiones o solo los separadores de palabras
         !fileWithReader.contains('-')
-
-        where:
-        name << TestConstraints.FILE_LIST
-    }
-
-    def "The first character of files match "() {
-        when:
-        FileFragment str = new FileReader(new File(TestConstraints.RESOURCES_URL + name)).read()
-
-        then:
-        str.text.startsWith(startText as String)
-
-        where:
-        name << TestConstraints.FILE_LIST
-        startText << TestConstraints.FIRST_CHARACTERS_OF_FILES
-    }
-
-    def "File fragments has the same content than original"() {
-        when:
-        String fullFile = ""
-        Scanner scanner = new Scanner(new File(TestConstraints.RESOURCES_URL + name))
-        while (scanner.hasNext()) fullFile += scanner.nextLine()
-
-        String fileWithReader = ""
-        FileReader reader = new FileReader(new File(TestConstraints.RESOURCES_URL + name))
-        while (reader.hasMoreContent()) {
-            fileWithReader += reader.read().getText()
-        }
-
-        then:
-        fileWithReader == fullFile
 
         where:
         name << TestConstraints.FILE_LIST

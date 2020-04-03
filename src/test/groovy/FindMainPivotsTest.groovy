@@ -183,6 +183,7 @@ class FindMainPivotsTest extends Specification {
         expect:
         checkProcess("example35")
     }
+
     def "Check	example36"() {
         expect:
         checkProcess("example36")
@@ -200,7 +201,7 @@ class FindMainPivotsTest extends Specification {
 
         if ((xml.sentences.sentence.@state as String) == "OK") {
             assert xml.sentences.sentence.@text == solution.text
-            assert xml.sentences.sentence.result[0].pivot == solution.pivot
+            assert xml.sentences.sentence.units.unit[0].pivot.word == solution.pivot
         } else {
             assert (xml.sentences.sentence.@state as String) == "KO"
         }
