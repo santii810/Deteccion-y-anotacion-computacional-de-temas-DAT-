@@ -14,13 +14,14 @@ public class Processor {
 
     public void process(ObjectsMapped objectsMapped, ProcessedOutput output) {
         for (Sentence sentence : objectsMapped.getSentences()) {
-            SentenceXml xml = processSentence(sentence);
+            SentenceXml xml = detectUnitComponents(sentence);
             xml.setRef(output.getSentences().size() + 1);
             output.getSentences().add(xml);
         }
     }
 
-    private SentenceXml processSentence(Sentence sentence) {
+
+    private SentenceXml detectUnitComponents(Sentence sentence) {
         SentenceXml xml = new SentenceXml();
         xml.setText(sentence.getText());
         xml.setWords(new ArrayList<>(sentence.getWords().values()));
@@ -33,11 +34,11 @@ public class Processor {
             } else {
                 xml.setState(State.OK);
                 if (mainPivotId == 1) {
-                    xml.getUnit().add(new Unit("1", new Pivot(sentence.getWords().get(mainPivotId)),
+                    xml.getUnits().add(new Unit("1", new Pivot(sentence.getWords().get(mainPivotId)),
                             new Theme(Collections.singletonList(sentence.getWords().get(mainPivotId))))
                     );
                 } else {
-                    xml.getUnit().add(new Unit("1",
+                    xml.getUnits().add(new Unit("1",
                             new Pivot(sentence.getWords().get(mainPivotId)),
                             new Theme(sentence.getWords().entrySet().stream().limit(mainPivotId - 1)
                                     .map(Map.Entry::getValue).collect(Collectors.toList()))
@@ -46,9 +47,8 @@ public class Processor {
             }
 
 
-
             //Secondary units
-            xml.getUnit().addAll(findSecondaryPivots(sentence, mainPivotId));
+            xml.getUnits().addAll(findSecondaryPivots(sentence, mainPivotId));
             return xml;
         } catch (Exception e) {
             log.error("Error procesando sentencia: " + sentence.toString());

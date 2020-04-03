@@ -26,9 +26,6 @@ public class Unit {
         this.pivot = new Pivot(word);
     }
 
-    public List<Word> getTheme() {
-        return theme==null? new Theme().getWords(): theme.getWords();
-    }
 
     public void setTheme(List<Word> words) {
         if (this.theme == null)

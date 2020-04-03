@@ -19,7 +19,7 @@ public class Word {
     @XmlAttribute
     private String xPosTag;
 
-    @XmlTransient
+    @XmlAttribute
     private String depRel;
     @XmlTransient
     private String lemma;

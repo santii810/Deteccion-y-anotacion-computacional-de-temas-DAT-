@@ -28,7 +28,7 @@ public class SentenceXml {
 
     @XmlElementWrapper(name = "units")
     @XmlElement(name = "unit")
-    private List<Unit> unit = new ArrayList<>();
+    private List<Unit> units = new ArrayList<>();
 
     @XmlElementWrapper(name = "words")
     @XmlElement(name = "word")

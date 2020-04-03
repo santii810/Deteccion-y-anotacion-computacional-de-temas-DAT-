@@ -1,9 +1,17 @@
 package utils;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Utils {
+
+    public static List<String> depRelPermitidos = Arrays.asList("acl", "advcl", "advmod", "appos", "aux", "ccomp",
+            "cop", "csubj", "discourse", "dislocated", "expl", "iobj", "mark", "nsubj", "obj", "obl", "root",
+            "vocative", "xcomp");
+
+
 
     public static String getElapsedTime(long start, long end) {
         long elapsed = end - start;
