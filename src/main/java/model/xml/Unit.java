@@ -17,10 +17,13 @@ public class Unit {
     private String ref;
 
     @XmlElement(name = "pivot")
-    private Word pivot;
+    private Pivot pivot;
     @XmlElementWrapper(name = "theme")
     @XmlElement(name = "word")
     private List<Word> theme;
 
 
+    public void setPivot(Word word) {
+        this.pivot = new Pivot(word);
+    }
 }

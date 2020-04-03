@@ -19,7 +19,6 @@ class FindSecondaryThemesTest extends Specification {
         then:
         themeSizes.contains(13)
         themeSizes.contains(1)
-
     }
 
 
