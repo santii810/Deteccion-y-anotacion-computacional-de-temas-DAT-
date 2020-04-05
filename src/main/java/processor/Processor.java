@@ -6,6 +6,7 @@ import model.Sentence;
 import model.xml.*;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -49,6 +50,9 @@ public class Processor {
 
             //Secondary units
             xml.getUnits().addAll(findSecondaryPivots(sentence, mainPivotId));
+            AtomicInteger ref = new AtomicInteger(1);
+            xml.getUnits().stream().forEach(i-> i.setRef(String.valueOf(ref.getAndIncrement())));
+
             return xml;
         } catch (Exception e) {
             log.error("Error procesando sentencia: " + sentence.toString());

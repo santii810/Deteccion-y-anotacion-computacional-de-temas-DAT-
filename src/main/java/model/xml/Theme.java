@@ -19,14 +19,15 @@ public class Theme {
     List<Word> words;
     @XmlAttribute(name = "scheme")
     String scheme;
+    @XmlAttribute(name = "length")
+    Integer length;
 
     public Theme(List<Word> words) {
         this.words = words;
         this.scheme = this.words.stream().map(Word::getDepRel)
                 .filter(i -> Utils.depRelPermitidos.stream().anyMatch(j -> i.startsWith(j)))
                 .collect(Collectors.joining("_"));
-//        this.scheme = this.words.stream().map(Word::getDepRel).collect(Collectors.joining("_"));
-
+        this.length = words.size();
     }
 
 }

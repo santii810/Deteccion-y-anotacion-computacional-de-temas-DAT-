@@ -3,8 +3,7 @@ package model.xml;
 import lombok.*;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @NoArgsConstructor
 @Getter
@@ -28,7 +27,7 @@ public class SentenceXml {
 
     @XmlElementWrapper(name = "units")
     @XmlElement(name = "unit")
-    private List<Unit> units = new ArrayList<>();
+    private List<Unit> units = new LinkedList<>();
 
     @XmlElementWrapper(name = "words")
     @XmlElement(name = "word")
