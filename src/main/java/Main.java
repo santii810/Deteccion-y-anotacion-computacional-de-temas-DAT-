@@ -19,11 +19,10 @@ public class Main {
         startTime = System.currentTimeMillis();
         newFileTime = System.currentTimeMillis();
         try {
-//            String filename = "src/test/resources/AmE06_files";
-//            String filename = "src/test/resources/AmE06_files/AmE06_F/ame06_f19.txt";
-            String filename = "src/test/resources/AmE06_files/AmE06_A/ame06_a01.txt";
-            log.info("Iniciando análisis de fichero: " + filename + "\n\n");
+            String filename;
+            filename = args[0];
 
+            log.info("Iniciando análisis de fichero: " + filename + "\n\n");
             File file = new File(filename);
             Reader reader;
             if (file.isFile()) {
