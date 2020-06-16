@@ -3,6 +3,7 @@ import groovy.util.slurpersupport.GPathResult
 import lombok.extern.slf4j.Slf4j
 import mapper.ObjectMapper
 import parser.Parser
+import processor.Processor
 import reader.FileReader
 import reader.Reader
 import spock.lang.Specification
@@ -194,7 +195,7 @@ class FindMainPivotsTest extends Specification {
     static def checkProcess(String example) {
         HashMap solution = jsonSolutions.get(example)
         Reader reader = new FileReader(new File(RESOURCES_URL + solution.file))
-        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper())
+        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper(), new Processor())
         mainHelper.process()
 
         String outputFile = solution.file.split("\\.")[0] + ".xml"
@@ -211,7 +212,7 @@ class FindMainPivotsTest extends Specification {
    static def checkKO(String example) {
         HashMap solution = jsonSolutions.get(example)
         Reader reader = new FileReader(new File(RESOURCES_URL + solution.file))
-        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper())
+        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper(), new Processor())
         mainHelper.process()
 
         String outputFile = solution.file.split("\\.")[0] + ".xml"

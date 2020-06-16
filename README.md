@@ -7,3 +7,18 @@ Como contribución a un proyecto sobre conexión entre género textual y realiza
 
 El proceso computacional mencionado hace referencia al análisis, diseño e implementación de un servicio que, partiendo de una entrada de texto plano en inglés y mediante un conjunto de algoritmos a desarrollar, identifique los *‘Temas’* en dicho texto, los procese y genere una salida estructurada empleando el lenguaje de marcado XML.
 
+
+
+### Modo de empleo
+
+#### Usando Java/Maven
+Debes importar al  fichero *pom.xml* de tu proyecto la dependencia del parser 
+```        
+<dependency>
+    <groupId>com.uvigo.sgomez</groupId>
+    <artifactId>dat</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+Puedes importar el jar 
+

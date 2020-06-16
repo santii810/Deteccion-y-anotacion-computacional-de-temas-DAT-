@@ -11,7 +11,7 @@ import java.io.File;
 public class Marshaller {
     private static final String DEFAULT_OUTPUT_FOLDER = "./out/parsedFiles/";
 
-    private static void createStructure(String filename) {
+    private static void createFolders(String filename) {
         File file = new File(DEFAULT_OUTPUT_FOLDER);
         if (!file.exists()) file.mkdirs();
 
@@ -21,7 +21,7 @@ public class Marshaller {
     }
 
     public static void marshall(ProcessedOutput processedOutput, String filename) throws JAXBException {
-        createStructure(filename);
+        createFolders(filename);
         log.debug("Guardando resultado : " + processedOutput.getRef());
 
         JAXBContext context = JAXBContext.newInstance(processedOutput.getClass());

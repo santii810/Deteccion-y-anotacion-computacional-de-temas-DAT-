@@ -3,6 +3,7 @@ import groovy.util.slurpersupport.NodeChild
 import lombok.extern.slf4j.Slf4j
 import mapper.ObjectMapper
 import parser.Parser
+import processor.Processor
 import reader.FileReader
 import reader.Reader
 import spock.lang.Specification
@@ -101,7 +102,7 @@ class FindSecondaryThemesTest extends Specification {
 
     static List<Integer> getListOfThemeSizes(String filename) {
         Reader reader = new FileReader(new File(RESOURCES_URL + filename))
-        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper())
+        MainHelper mainHelper = new MainHelper(reader, new Parser(), new ObjectMapper(),  new Processor())
         mainHelper.process()
 
         String outputFile = filename.split("\\.")[0] + ".xml"

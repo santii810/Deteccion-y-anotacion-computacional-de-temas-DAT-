@@ -21,15 +21,28 @@ public class MainHelper {
     private Parser parser;
     private ObjectMapper objectMapper;
     private Processor processor;
+    static long startTime;
+    static long newFileTime;
 
 
-    public MainHelper(Reader reader, Parser parser, ObjectMapper objectMapper) {
+    public MainHelper(Reader reader, Parser parser, ObjectMapper objectMapper, Processor processor) {
         this.reader = reader;
         this.parser = parser;
         this.objectMapper = objectMapper;
-        //TODO revisar :(
-        this.processor = new Processor();
+        this.processor = processor;
+        startTime = System.currentTimeMillis();
+        newFileTime = System.currentTimeMillis();
     }
+
+    public MainHelper(Reader reader) {
+        this.reader = reader;
+        this.parser = new Parser();
+        this.objectMapper = new ObjectMapper();
+        this.processor = new Processor();
+        startTime = System.currentTimeMillis();
+        newFileTime = System.currentTimeMillis();
+    }
+
 
     public void process() throws IOException, JAXBException {
         ProcessedOutput output = new ProcessedOutput();
@@ -44,8 +57,8 @@ public class MainHelper {
                         output.setRef(Utils.extractRefFromFilename(fileFragment.getFilename()));
                         Marshaller.marshall(output, createOutputFilename(fileFragment.getFilename()));
                         output = new ProcessedOutput();
-                        log.info("File + " + fileFragment.getFilename() + " time: " + Utils.getElapsedTime(Main.newFileTime, System.currentTimeMillis()));
-                        Main.newFileTime = System.currentTimeMillis();
+                        log.info("File + " + fileFragment.getFilename() + " time: " + Utils.getElapsedTime(this.newFileTime, System.currentTimeMillis()));
+                        this.newFileTime = System.currentTimeMillis();
                     }
                 } else {
                     SentenceXml sentenceXml = new SentenceXml();
@@ -57,6 +70,11 @@ public class MainHelper {
                 }
             }
         }
+
+        //
+        log.info("\n\nTotal time: " + Utils.getElapsedTime(this.startTime, System.currentTimeMillis()));
+
+
     }
 
     private String createOutputFilename(String inputFilename) {
