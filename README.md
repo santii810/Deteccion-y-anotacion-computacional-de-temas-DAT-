@@ -2,6 +2,8 @@
 ###  DAT: Detecion and computational anotation of Systemic-Functional *‘themes’* on English language corpus
 
 
+[Readme en Español](https://github.com/santii810/Deteccion-y-anotacion-computacional-de-temas-DAT-/blob/master/README_es.md)
+______
 As a contribution to a project on the connection between textual genre and thematic realization in English written 
 from empirical linguistics, this study describes the computational procedure used in the automatic detection and XML 
 annotation of *'themes'* in *AmE06 (Baker 2009)*, a multi-genre corpus, analyzed syntactically, of a million 
