@@ -16,12 +16,13 @@ public class Main {
     static long newFileTime;
 
     public static void main(String[] args) {
+        log.info("Iniciando proceso");
         startTime = System.currentTimeMillis();
         newFileTime = System.currentTimeMillis();
         try {
             String filename;
             filename = args[0];
-
+//            filename = "src/test/resources/AmE06_files/AmE06_F";
             log.info("Iniciando análisis de fichero: " + filename + "\n\n");
             File file = new File(filename);
             Reader reader;

@@ -54,7 +54,7 @@ public class Parser {
                 responseModel.setBody(result);
             }
         }
-        log.debug(Integer.toString(responseModel.getHttpStatus()));
+        log.trace(Integer.toString(responseModel.getHttpStatus()));
         log.trace(responseModel.toString());
         return responseModel;
     }

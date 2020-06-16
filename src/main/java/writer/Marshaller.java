@@ -1,11 +1,13 @@
 package writer;
 
+import lombok.extern.slf4j.Slf4j;
 import model.xml.ProcessedOutput;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 
+@Slf4j
 public class Marshaller {
     private static final String DEFAULT_OUTPUT_FOLDER = "./out/parsedFiles/";
 
@@ -20,6 +22,7 @@ public class Marshaller {
 
     public static void marshall(ProcessedOutput processedOutput, String filename) throws JAXBException {
         createStructure(filename);
+        log.debug("Guardando resultado : " + processedOutput.getRef());
 
         JAXBContext context = JAXBContext.newInstance(processedOutput.getClass());
         javax.xml.bind.Marshaller mar = context.createMarshaller();

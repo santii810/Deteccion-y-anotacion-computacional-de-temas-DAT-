@@ -14,7 +14,6 @@ public class FileReader implements Reader {
     public FileReader(File file) throws FileNotFoundException {
         this.file = file;
         this.fileScanner = new Scanner(file);
-        log.info("File " + file.getName() + " is opened.");
     }
 
     public boolean hasMoreContent() {
@@ -30,7 +29,7 @@ public class FileReader implements Reader {
         String toret = builder.toString().replace("-", "");
         FileFragment fragment = new FileFragment(file.getName(), toret, !hasMoreContent());
 
-        log.debug("Retornando FileFragment : " + fragment.toString());
+        log.debug("Retornando FileFragment : " + fragment.getFilename() + " - " + fragment.getText().substring(0, Math.min(100, fragment.getText().length())));
         return fragment;
     }
 
